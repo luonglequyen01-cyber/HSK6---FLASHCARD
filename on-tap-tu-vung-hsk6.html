@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 6 · 200 Từ Vựng Trọng Tâm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#21201B;
+    --ink-soft:#5B5648;
+    --ink-faint:#8B8576;
+    --paper:#E9E4D4;
+    --paper-2:#E2DCC8;
+    --surface:#FBF9F1;
+    --surface-2:#F3EEDC;
+    --seal:#A93B2E;
+    --seal-dark:#852D22;
+    --seal-soft:#F1DAD2;
+    --jade:#3E6259;
+    --jade-dark:#2E4B43;
+    --jade-soft:#DCE8E1;
+    --gold:#B8862D;
+    --border:rgba(33,32,27,0.14);
+    --border-soft:rgba(33,32,27,0.08);
+    --shadow:rgba(33,32,27,0.18);
+    --radius:18px;
+    --font-display:'Noto Serif SC','Songti SC','SimSun',serif;
+    --font-hanzi:'Noto Sans SC','PingFang SC',sans-serif;
+    --font-body:'Be Vietnam Pro',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    --font-mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,255,255,0.5), transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(255,255,255,0.35), transparent 45%),
+      repeating-linear-gradient(0deg, rgba(33,32,27,0.025) 0px, rgba(33,32,27,0.025) 1px, transparent 1px, transparent 3px);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  button{font-family:inherit;}
+  ::selection{background:var(--seal-soft);}
+
+  :focus-visible{
+    outline:2px solid var(--seal);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    padding:44px 0 28px;
+    flex-wrap:wrap;
+  }
+  .seal-stamp{
+    flex:0 0 auto;
+    width:92px;height:92px;
+    position:relative;
+  }
+  .seal-stamp svg{width:100%;height:100%;}
+  .hero-text{flex:1 1 320px;min-width:0;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--seal-dark);
+    font-weight:600;
+    display:flex;align-items:center;gap:8px;
+    margin-bottom:6px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--seal);display:inline-block;}
+  h1.title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(26px,4.2vw,40px);
+    line-height:1.15;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+  h1.title .cn{font-size:1.05em;}
+  .subtitle{
+    font-size:15px;
+    color:var(--ink-soft);
+    margin:0;
+    max-width:46ch;
+  }
+
+  /* ---------- NAV / TABS ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(233,228,212,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--border);
+  }
+  .tabs-row{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    padding:0 0 0 0;
+  }
+  .tabs{display:flex;gap:4px;flex-wrap:wrap;}
+  .tab-btn{
+    background:none;border:none;cursor:pointer;
+    font-family:var(--font-body);font-weight:600;font-size:14.5px;
+    color:var(--ink-soft);
+    padding:14px 16px 12px;
+    border-bottom:3px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn.active{color:var(--seal-dark);border-bottom-color:var(--seal);}
+  .session-stats{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink-faint);
+    padding:8px 0;
+    white-space:nowrap;
+  }
+  .session-stats b{color:var(--ink-soft);font-weight:600;}
+
+  main{padding-bottom:80px;}
+  .panel{display:none;padding-top:28px;animation:fadein .25s ease;}
+  .panel.active{display:block;}
+  @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  /* ---------- shared: filter chips + search ---------- */
+  .controls-row{
+    display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+    margin-bottom:20px;
+  }
+  .chip-group{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{
+    font-family:var(--font-body);
+    font-size:13px;font-weight:600;
+    padding:7px 14px;
+    border-radius:100px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .chip:hover{border-color:var(--seal);color:var(--seal-dark);}
+  .chip.active{background:var(--jade);border-color:var(--jade);color:#fff;}
+  .search-box{
+    position:relative;flex:1 1 220px;min-width:200px;max-width:320px;
+  }
+  .search-box input{
+    width:100%;
+    font-family:var(--font-body);
+    font-size:14px;
+    padding:9px 14px 9px 34px;
+    border-radius:100px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--ink);
+  }
+  .search-box input::placeholder{color:var(--ink-faint);}
+  .search-box svg{
+    position:absolute;left:12px;top:50%;transform:translateY(-50%);
+    width:14px;height:14px;color:var(--ink-faint);
+  }
+
+  /* ---------- FLASHCARD ---------- */
+  .fc-stage{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .fc-progress{
+    font-family:var(--font-mono);font-size:13px;color:var(--ink-faint);
+  }
+  .fc-track{width:min(560px,92vw);height:4px;background:var(--paper-2);border-radius:4px;overflow:hidden;margin-bottom:2px;}
+  .fc-track-fill{height:100%;background:var(--seal);border-radius:4px;transition:width .25s ease;}
+
+  .flashcard{
+    width:min(560px,92vw);
+    height:340px;
+    perspective:1400px;
+    cursor:pointer;
+    position:relative;
+  }
+  .flashcard-inner{
+    width:100%;height:100%;position:relative;
+    transition:transform .55s cubic-bezier(.22,.85,.28,1);
+    transform-style:preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+  .flashcard-face{
+    position:absolute;inset:0;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;
+    border-radius:var(--radius);
+    background:var(--surface);
+    border:1px solid var(--border);
+    box-shadow:0 22px 44px -20px var(--shadow), 0 2px 0 var(--border-soft) inset;
+    padding:30px 34px;
+    display:flex;flex-direction:column;
+  }
+  .flashcard-face.front{
+    align-items:center;justify-content:center;text-align:center;position:relative;
+  }
+  .fc-pos-badge{
+    position:absolute;top:18px;left:20px;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+    color:var(--jade-dark);background:var(--jade-soft);
+    padding:4px 10px;border-radius:100px;font-weight:600;
+  }
+  .fc-hanzi-big{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(58px,13vw,84px);
+    color:var(--ink);line-height:1;
+  }
+  .fc-hint{
+    margin-top:18px;font-size:12.5px;color:var(--ink-faint);
+    font-family:var(--font-mono);letter-spacing:.04em;
+  }
+  .flashcard-face.back{
+    transform:rotateY(180deg);
+    text-align:left;overflow-y:auto;
+  }
+  .fc-back-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .fc-pinyin{font-family:var(--font-mono);font-size:21px;color:var(--seal-dark);font-weight:600;}
+  .fc-pos-inline{font-size:12px;color:var(--jade-dark);background:var(--jade-soft);padding:3px 9px;border-radius:100px;font-weight:600;}
+  .fc-meaning{font-size:17px;font-weight:600;color:var(--ink);margin:10px 0 14px;line-height:1.45;}
+  .fc-divider{border:none;border-top:1px dashed var(--border);margin:0 0 14px;}
+  .fc-example-cn{font-family:var(--font-hanzi);font-size:16px;color:var(--ink);line-height:1.6;margin-bottom:4px;}
+  .fc-example-pinyin{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:8px;}
+  .fc-example-vn{font-size:13.5px;color:var(--ink-soft);font-style:italic;line-height:1.5;}
+
+  .fc-stamp{
+    position:absolute;top:10px;right:10px;
+    width:54px;height:54px;
+    opacity:0;pointer-events:none;
+    transform:scale(1.6) rotate(-14deg);
+  }
+  .fc-stamp.show{
+    animation:stampIn .8s cubic-bezier(.2,1.4,.4,1) forwards;
+  }
+  @keyframes stampIn{
+    0%{opacity:0;transform:scale(2.2) rotate(-18deg);}
+    35%{opacity:1;transform:scale(0.94) rotate(-10deg);}
+    55%{opacity:1;transform:scale(1.04) rotate(-12deg);}
+    75%{opacity:1;transform:scale(1) rotate(-11deg);}
+    100%{opacity:0;transform:scale(1) rotate(-11deg);}
+  }
+
+  .fc-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .btn{
+    font-family:var(--font-body);font-weight:600;font-size:13.5px;
+    padding:10px 18px;border-radius:100px;border:1px solid var(--border);
+    background:var(--surface);color:var(--ink);cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;
+    transition:all .15s ease;
+  }
+  .btn:hover{border-color:var(--ink-soft);transform:translateY(-1px);}
+  .btn svg{width:14px;height:14px;}
+  .btn-ghost{background:transparent;}
+  .btn-outline-seal{border-color:var(--seal);color:var(--seal-dark);}
+  .btn-outline-seal:hover{background:var(--seal-soft);}
+  .btn-jade{background:var(--jade);border-color:var(--jade);color:#fff;}
+  .btn-jade:hover{background:var(--jade-dark);}
+  .btn-seal{background:var(--seal);border-color:var(--seal);color:#fff;}
+  .btn-seal:hover{background:var(--seal-dark);}
+  .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+  .btn-icon{padding:10px;border-radius:50%;}
+
+  .fc-empty{
+    text-align:center;color:var(--ink-faint);padding:60px 20px;font-size:14px;
+  }
+
+  /* ---------- WORD LIST ---------- */
+  .list-count{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:10px;}
+  .vocab-list{display:flex;flex-direction:column;gap:8px;}
+  .vocab-row{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:13px 16px;
+    cursor:pointer;
+    transition:border-color .15s ease;
+  }
+  .vocab-row:hover{border-color:var(--seal);}
+  .vocab-row-head{display:flex;align-items:center;gap:14px;}
+  .vr-idx{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);width:30px;flex:0 0 auto;}
+  .vr-hanzi{font-family:var(--font-display);font-weight:700;font-size:21px;color:var(--ink);flex:0 0 auto;min-width:64px;}
+  .vr-pinyin{font-family:var(--font-mono);font-size:12.5px;color:var(--seal-dark);flex:0 0 auto;min-width:90px;}
+  .vr-pos{font-size:11px;font-weight:600;color:var(--jade-dark);background:var(--jade-soft);padding:3px 9px;border-radius:100px;flex:0 0 auto;white-space:nowrap;}
+  .vr-meaning{font-size:13.5px;color:var(--ink-soft);flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .vr-chevron{width:14px;height:14px;color:var(--ink-faint);flex:0 0 auto;transition:transform .2s ease;}
+  .vocab-row.open .vr-chevron{transform:rotate(90deg);}
+  .vocab-row-body{
+    display:none;
+    padding:14px 0 4px 44px;
+    border-top:1px dashed var(--border);
+    margin-top:12px;
+  }
+  .vocab-row.open .vocab-row-body{display:block;}
+  .vr-example-cn{font-family:var(--font-hanzi);font-size:15px;color:var(--ink);margin-bottom:3px;}
+  .vr-example-pinyin{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);margin-bottom:6px;}
+  .vr-example-vn{font-size:13px;color:var(--ink-soft);font-style:italic;}
+
+  /* ---------- QUIZ ---------- */
+  .quiz-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:760px){.quiz-picker{grid-template-columns:1fr;}}
+  .quiz-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px 22px;display:flex;flex-direction:column;gap:10px;
+  }
+  .qc-icon{
+    width:46px;height:46px;border-radius:10px;
+    background:var(--seal);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-weight:700;font-size:21px;
+    transform:rotate(-3deg);
+  }
+  .qc-title{font-weight:700;font-size:15.5px;color:var(--ink);}
+  .qc-desc{font-size:13px;color:var(--ink-soft);line-height:1.5;flex:1;}
+
+  .quiz-active{max-width:640px;margin:0 auto;}
+  .quiz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
+  .quiz-dots{display:flex;gap:6px;}
+  .quiz-dot{width:9px;height:9px;border-radius:50%;background:var(--paper-2);border:1px solid var(--border);}
+  .quiz-dot.current{background:var(--gold);border-color:var(--gold);}
+  .quiz-dot.correct{background:var(--jade);border-color:var(--jade);}
+  .quiz-dot.wrong{background:var(--seal);border-color:var(--seal);}
+  .quiz-score{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);}
+
+  .quiz-card-q{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:30px 28px;margin-bottom:18px;text-align:center;
+    box-shadow:0 18px 36px -20px var(--shadow);
+  }
+  .quiz-type-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;}
+  .quiz-prompt-hanzi{font-family:var(--font-display);font-weight:700;font-size:clamp(38px,8vw,52px);color:var(--ink);line-height:1.1;}
+  .quiz-prompt-pinyin{font-family:var(--font-mono);font-size:16px;color:var(--seal-dark);margin-top:6px;}
+  .quiz-prompt-text{font-size:17px;color:var(--ink);line-height:1.5;font-weight:600;}
+  .quiz-prompt-sentence{font-family:var(--font-hanzi);font-size:19px;color:var(--ink);line-height:1.7;}
+  .quiz-prompt-sentence .blank{
+    display:inline-block;min-width:2.4em;border-bottom:2px solid var(--seal);color:transparent;
+  }
+
+  .quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media (max-width:540px){.quiz-options{grid-template-columns:1fr;}}
+  .quiz-opt{
+    text-align:left;
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:14px 16px;cursor:pointer;
+    display:flex;align-items:center;gap:12px;
+    font-family:var(--font-body);font-size:14.5px;color:var(--ink);
+    transition:all .15s ease;
+  }
+  .quiz-opt:hover:not(:disabled){border-color:var(--ink-soft);}
+  .quiz-opt-letter{
+    font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--ink-faint);
+    width:22px;height:22px;border-radius:50%;border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  }
+  .quiz-opt-text{flex:1;min-width:0;}
+  .quiz-opt-text .qh{font-family:var(--font-display);font-weight:700;font-size:18px;}
+  .quiz-opt-text .qp{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);display:block;margin-top:2px;}
+  .quiz-opt.correct{background:var(--jade-soft);border-color:var(--jade);}
+  .quiz-opt.correct .quiz-opt-letter{background:var(--jade);color:#fff;border-color:var(--jade);}
+  .quiz-opt.wrong{background:var(--seal-soft);border-color:var(--seal);}
+  .quiz-opt.wrong .quiz-opt-letter{background:var(--seal);color:#fff;border-color:var(--seal);}
+  .quiz-opt:disabled{cursor:default;}
+  .quiz-opt:disabled:not(.correct):not(.wrong){opacity:.55;}
+
+  .quiz-explain{
+    margin-top:16px;padding:16px 18px;border-radius:14px;
+    background:var(--surface-2);border:1px solid var(--border-soft);
+    font-size:13.5px;color:var(--ink-soft);line-height:1.6;display:none;
+  }
+  .quiz-explain.show{display:block;animation:fadein .2s ease;}
+  .quiz-explain b{color:var(--ink);}
+  .quiz-explain .qe-example{font-family:var(--font-hanzi);font-size:14.5px;color:var(--ink);margin-top:6px;}
+  .quiz-explain .qe-pinyin{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);}
+
+  .quiz-foot{display:flex;justify-content:flex-end;margin-top:18px;}
+
+  .quiz-summary{text-align:center;padding:30px 10px;}
+  .qs-stamp{width:100px;height:100px;margin:0 auto 16px;}
+  .qs-score{font-family:var(--font-display);font-weight:700;font-size:40px;color:var(--ink);}
+  .qs-tier{font-size:15px;color:var(--seal-dark);font-weight:600;margin:4px 0 22px;}
+  .qs-wrong-list{max-width:420px;margin:0 auto 22px;text-align:left;}
+  .qs-wrong-item{
+    display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--border-soft);
+    font-size:13.5px;
+  }
+  .qs-wrong-item .qh{font-family:var(--font-display);font-weight:700;font-size:16px;}
+  .qs-wrong-item .qp{font-family:var(--font-mono);font-size:11px;color:var(--seal-dark);}
+  .qs-wrong-item .qm{color:var(--ink-soft);flex:1;text-align:right;}
+  .qs-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+  footer{
+    text-align:center;padding:30px 20px 50px;
+    font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .flashcard-inner{transition:none;}
+    .fc-stamp.show{animation:none;opacity:1;}
+    .panel{animation:none;}
+  }
+
+  @media (max-width:600px){
+    .hero{padding:30px 0 20px;gap:18px;}
+    .seal-stamp{width:70px;height:70px;}
+    .vr-pinyin{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="seal-stamp" aria-hidden="true">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="inkRough" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6"/>
+          </filter>
+        </defs>
+        <g filter="url(#inkRough)" transform="rotate(-4 50 50)">
+          <rect x="8" y="8" width="84" height="84" rx="6" fill="none" stroke="#A93B2E" stroke-width="6"/>
+          <text x="50" y="46" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="700" font-size="30" fill="#A93B2E">六</text>
+          <text x="50" y="78" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="700" font-size="22" fill="#A93B2E">级</text>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-text">
+      <div class="eyebrow"><span class="dot"></span>HSK 6 · ÔN TẬP TỪ VỰNG TRỌNG TÂM</div>
+      <h1 class="title">200 Từ Vựng <span class="cn">重点词汇</span></h1>
+      <p class="subtitle">Lật thẻ ghi nhớ, tra cứu mẫu câu kèm phiên âm, và luyện tập với bài tập tự sinh từ bộ 200 từ vựng HSK 6 trọng tâm.</p>
+    </div>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap tabs-row">
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="flashcard" role="tab">Flashcard</button>
+      <button class="tab-btn" data-tab="list" role="tab">Danh sách từ vựng</button>
+      <button class="tab-btn" data-tab="quiz" role="tab">Luyện tập</button>
+    </div>
+    <div class="session-stats" id="sessionStats">Đã nhớ: <b>0</b> · Cần ôn lại: <b>0</b></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- FLASHCARD PANEL -->
+  <section class="panel active" id="panel-flashcard">
+    <div class="controls-row">
+      <div class="chip-group" id="fcChips"></div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="fcSearch" placeholder="Tìm theo Hán tự, pinyin hoặc nghĩa…">
+      </div>
+    </div>
+
+    <div class="fc-stage">
+      <div class="fc-progress" id="fcProgress">1 / 200</div>
+      <div class="fc-track"><div class="fc-track-fill" id="fcTrackFill" style="width:0.5%"></div></div>
+
+      <div id="fcCardWrap">
+        <div class="flashcard" id="flashcard">
+          <div class="flashcard-inner">
+            <div class="flashcard-face front">
+              <span class="fc-pos-badge" id="fcPosFront"></span>
+              <div class="fc-hanzi-big" id="fcHanzi"></div>
+              <div class="fc-hint">Nhấn vào thẻ để xem nghĩa</div>
+              <svg class="fc-stamp" id="fcStamp" viewBox="0 0 100 100"><g></g></svg>
+            </div>
+            <div class="flashcard-face back">
+              <div class="fc-back-top">
+                <span class="fc-pinyin" id="fcPinyin"></span>
+                <span class="fc-pos-inline" id="fcPosBack"></span>
+              </div>
+              <div class="fc-meaning" id="fcMeaning"></div>
+              <hr class="fc-divider">
+              <div class="fc-example-cn" id="fcExCn"></div>
+              <div class="fc-example-pinyin" id="fcExPinyin"></div>
+              <div class="fc-example-vn" id="fcExVn"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-empty" id="fcEmptyState" style="display:none;">Không tìm thấy từ vựng phù hợp.</div>
+      </div>
+
+      <div class="fc-controls">
+        <button class="btn btn-icon btn-ghost" id="fcShuffle" title="Trộn ngẫu nhiên">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+        </button>
+        <button class="btn" id="fcPrev">‹ Trước</button>
+        <button class="btn btn-outline-seal" id="fcNeedReview">Cần ôn lại</button>
+        <button class="btn btn-jade" id="fcKnown">Đã nhớ ✓</button>
+        <button class="btn" id="fcNext">Sau ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIST PANEL -->
+  <section class="panel" id="panel-list">
+    <div class="controls-row">
+      <div class="chip-group" id="listChips"></div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="listSearch" placeholder="Tìm theo Hán tự, pinyin hoặc nghĩa…">
+      </div>
+    </div>
+    <div class="list-count" id="listCount"></div>
+    <div class="vocab-list" id="vocabList"></div>
+  </section>
+
+  <!-- QUIZ PANEL -->
+  <section class="panel" id="panel-quiz">
+    <div id="quizPicker" class="quiz-picker">
+      <div class="quiz-card">
+        <div class="qc-icon">字</div>
+        <div class="qc-title">Hán tự → Nghĩa</div>
+        <div class="qc-desc">Xem chữ Hán và phiên âm, chọn đúng nghĩa tiếng Việt trong 4 đáp án.</div>
+        <button class="btn btn-seal" data-quiz="hanzi-meaning">Bắt đầu · 10 câu</button>
+      </div>
+      <div class="quiz-card">
+        <div class="qc-icon">义</div>
+        <div class="qc-title">Nghĩa → Hán tự</div>
+        <div class="qc-desc">Đọc nghĩa tiếng Việt, chọn đúng chữ Hán tương ứng trong 4 đáp án.</div>
+        <button class="btn btn-seal" data-quiz="meaning-hanzi">Bắt đầu · 10 câu</button>
+      </div>
+      <div class="quiz-card">
+        <div class="qc-icon">句</div>
+        <div class="qc-title">Điền từ vào câu</div>
+        <div class="qc-desc">Đọc câu ví dụ có chỗ trống, chọn từ đúng để hoàn thành câu.</div>
+        <button class="btn btn-seal" data-quiz="fill-blank">Bắt đầu · 10 câu</button>
+      </div>
+    </div>
+
+    <div id="quizActive" class="quiz-active" style="display:none;">
+      <div class="quiz-head">
+        <div class="quiz-dots" id="quizDots"></div>
+        <div class="quiz-score" id="quizScore">Điểm: 0/0</div>
+      </div>
+      <div class="quiz-card-q">
+        <div class="quiz-type-label" id="quizTypeLabel"></div>
+        <div id="quizPromptArea"></div>
+      </div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-explain" id="quizExplain"></div>
+      <div class="quiz-foot">
+        <button class="btn btn-seal" id="quizNextBtn" disabled>Câu tiếp ›</button>
+      </div>
+    </div>
+
+    <div id="quizSummary" class="quiz-summary" style="display:none;">
+      <svg class="qs-stamp" id="qsStamp" viewBox="0 0 100 100"></svg>
+      <div class="qs-score" id="qsScoreText"></div>
+      <div class="qs-tier" id="qsTier"></div>
+      <div class="qs-wrong-list" id="qsWrongList"></div>
+      <div class="qs-actions">
+        <button class="btn btn-seal" id="qsRetry">Làm lại · 10 câu mới</button>
+        <button class="btn" id="qsBack">Chọn dạng bài khác</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  DỮ LIỆU: 200 TỪ VỰNG HSK 6 TRỌNG TÂM &nbsp;·&nbsp; CHÚC CÁC BẠN ÔN TẬP HIỆU QUẢ, 加油!
+</footer>
+
+<script>
+const VOCAB = [{"id": 1, "hanzi": "挨", "pinyin": "ái", "pos": "Động từ", "meaning": "Bị, chịu, trải qua (hoàn cảnh xấu)", "example_cn": "他挨了老师的批评。", "example_pinyin": "Tā áile lǎoshī de pīpíng.", "example_vn": "Anh ấy bị thầy giáo phê bình."}, {"id": 2, "hanzi": "癌症", "pinyin": "áizhèng", "pos": "Danh từ", "meaning": "Bệnh ung thư", "example_cn": "我们要积极预防癌症。", "example_pinyin": "Wǒmen yào jījí yùfáng áizhèng.", "example_vn": "Chúng ta cần tích cực phòng ngừa ung thư."}, {"id": 3, "hanzi": "爱不释手", "pinyin": "ài bú shì shǒu", "pos": "Thành ngữ", "meaning": "Yêu thích không rời tay, quý mến", "example_cn": "这件工艺品让人爱不释手。", "example_pinyin": "Zhè jiàn gōngyìpǐn ràng rén ài bú shì shǒu.", "example_vn": "Món đồ thủ công mỹ nghệ này khiến người ta yêu thích không rời tay."}, {"id": 4, "hanzi": "爱戴", "pinyin": "àidài", "pos": "Động từ", "meaning": "Kính yêu, mến mộ (dành cho cấp trên, lãnh đạo)", "example_cn": "这位校长深受学生爱戴。", "example_pinyin": "Zhè wèi xiàozhǎng shēn shòu xuéshēng àidài.", "example_vn": "Vị hiệu trưởng này được học sinh vô cùng kính yêu."}, {"id": 5, "hanzi": "暧昧", "pinyin": "àimèi", "pos": "Tính từ", "meaning": "Mập mờ, không rõ ràng (thái độ, quan hệ)", "example_cn": "不要用暧昧的态度对待工作。", "example_pinyin": "Búyào yòng àimèi de tàidù duìdài gōngzuò.", "example_vn": "Không được dùng thái độ mập mờ để đối xử với công việc."}, {"id": 6, "hanzi": "安详", "pinyin": "ānxiáng", "pos": "Tính từ", "meaning": "Ung dung, điềm tĩnh, thanh thản", "example_cn": "奶奶面容安详地睡着了。", "example_pinyin": "Nǎinai miànróng ānxiáng de shuìzháo le.", "example_vn": "Bà nội đang ngủ với gương mặt hiền từ điềm tĩnh."}, {"id": 7, "hanzi": "安置", "pinyin": "ānzhì", "pos": "Động từ", "meaning": "Sắp xếp, bố trí chỗ ở, công việc", "example_cn": "公司安置了新来的员工。", "example_pinyin": "Gōngsī ānzhì le xīn lái de yuángōng.", "example_vn": "Công ty đã sắp xếp chỗ ở cho nhân viên mới đến."}, {"id": 8, "hanzi": "暗示", "pinyin": "ànshì", "pos": "Động từ", "meaning": "Ám thị, gợi ý ngầm, ra hiệu", "example_cn": "他暗示我们计划有变。", "example_pinyin": "Tā ànshì wǒmen jìhuà yǒu biàn.", "example_vn": "Anh ấy ám thị cho chúng tôi biết kế hoạch có thay đổi."}, {"id": 9, "hanzi": "案件", "pinyin": "ànjiàn", "pos": "Danh từ", "meaning": "Vụ án, vụ việc pháp lý", "example_cn": "这起案件终于真相大白了。", "example_pinyin": "Zhè qǐ ànjiàn zhōngyú zhēnxiàng dàbái le.", "example_vn": "Vụ án này cuối cùng đã sáng tỏ chân tướng."}, {"id": 10, "hanzi": "案例", "pinyin": "ànlì", "pos": "Danh từ", "meaning": "Trường hợp thực tế, án lệ điển hình", "example_cn": "这是一个经典的成功案例。", "example_pinyin": "Zhè shì yí gè jīngdiǎn de chénggōng ànlì.", "example_vn": "Đây là một trường hợp thành công điển hình."}, {"id": 11, "hanzi": "罢工", "pinyin": "bàgōng", "pos": "Động từ", "meaning": "Bãi công, đình công", "example_cn": "工人们举行了全国大罢工。", "example_pinyin": "Gōngrénmen jǔxíngle quánguó dà bàgōng.", "example_vn": "Các công nhân đã tổ chức cuộc tổng bãi công toàn quốc."}, {"id": 12, "hanzi": "霸道", "pinyin": "bàdào", "pos": "Tính từ", "meaning": "Ngang ngược, bá đạo, hống hách", "example_cn": "他的作风非常霸道。", "example_pinyin": "Tā de zuòfēng fēicháng bàdào.", "example_vn": "Phong cách làm việc của anh ta rất ngang ngược."}, {"id": 13, "hanzi": "掰", "pinyin": "bāi", "pos": "Động từ", "meaning": "Bẻ, bẻ đôi bằng tay", "example_cn": "把面包掰成两半吧。", "example_pinyin": "Bǎ miànbāo bāi chéng liǎng bàn ba.", "example_vn": "Bẻ bánh mì thành hai nửa đi."}, {"id": 14, "hanzi": "白白", "pinyin": "báibái", "pos": "Phó từ", "meaning": "Uổng công, vô ích, trống trơn", "example_cn": "不能白白浪费这次机会。", "example_pinyin": "Bùnéng báibái làngfèi zhè cì jīhuì.", "example_vn": "Không thể lãng phí cơ hội này một cách uổng công."}, {"id": 15, "hanzi": "颁布", "pinyin": "bānbù", "pos": "Động từ", "meaning": "Ban hành, công bố (luật, sắc lệnh)", "example_cn": "政府颁布了新的法律法规。", "example_pinyin": "Zhèngfǔ bānbùle xīn de fǎlǜ fǎguī.", "example_vn": "Chính phủ đã ban hành các quy định pháp luật mới."}, {"id": 16, "hanzi": "颁发", "pinyin": "bānfā", "pos": "Động từ", "meaning": "Cấp, trao (bằng khen, giải thưởng, huân chương)", "example_cn": "校长为获奖者颁发了证书。", "example_pinyin": "Xiàozhǎng wèi huòjiǎngzhě bānfāle zhèngshū.", "example_vn": "Hiệu trưởng đã trao giấy chứng nhận cho những người đoạt giải."}, {"id": 17, "hanzi": "伴侣", "pinyin": "bànlǚ", "pos": "Danh từ", "meaning": "Bạn đời, bạn đồng hành", "example_cn": "她终于找到了人生的伴侣。", "example_pinyin": "Tā zhōngyú zhǎodàole rénshēng de bànlǚ.", "example_vn": "Cô ấy cuối cùng đã tìm được người bạn đời của cuộc đời mình."}, {"id": 18, "hanzi": "伴随", "pinyin": "bànsuí", "pos": "Động từ", "meaning": "Đi đôi với, kèm theo, xuất hiện cùng nhau", "example_cn": "成功往往伴随着艰辛。", "example_pinyin": "Chénggōng wǎngwǎng bànsuízhe jiānxīn.", "example_vn": "Thành công thường đi kèm với những gian khổ."}, {"id": 19, "hanzi": "半途而废", "pinyin": "bàn tú ér fèi", "pos": "Thành ngữ", "meaning": "Bỏ dở nửa chừng, bỏ cuộc giữa chừng", "example_cn": "做事不能半途而废。", "example_pinyin": "Zuòshì bùnéng bàn tú ér fèi.", "example_vn": "Làm việc không được bỏ dở nửa chừng."}, {"id": 20, "hanzi": "扮演", "pinyin": "bànyǎn", "pos": "Động từ", "meaning": "Đóng vai, thủ vai, đóng vai trò", "example_cn": "他在戏里扮演主角。", "example_pinyin": "Tā zài xì lǐ bànyǎn zhǔjiǎo.", "example_vn": "Anh ấy đóng vai chính trong vở kịch."}, {"id": 21, "hanzi": "绑架", "pinyin": "bǎngjià", "pos": "Động từ", "meaning": "Bắt cóc", "example_cn": "富商的儿子被绑架了。", "example_pinyin": "Fùshāng de érzi bèi bǎngjià le.", "example_vn": "Con trai của vị thương gia giàu có đã bị bắt cóc."}, {"id": 22, "hanzi": "榜样", "pinyin": "bǎngyàng", "pos": "Danh từ", "meaning": "Tấm gương, gương sáng để noi theo", "example_cn": "父母是孩子最好的榜样。", "example_pinyin": "Fùmǔ shì háizi zuì hǎo de bǎngyàng.", "example_vn": "Cha mẹ là tấm gương tốt nhất cho con cái."}, {"id": 23, "hanzi": "磅", "pinyin": "bàng", "pos": "Lượng từ", "meaning": "Bảng (đơn vị khối lượng Anh-Mỹ)", "example_cn": "这袋大米重五十磅。", "example_pinyin": "Zhè dài dàmǐ zhòng wǔshí bàng.", "example_vn": "Bao gạo này nặng 50 bảng."}, {"id": 24, "hanzi": "包庇", "pinyin": "bāobì", "pos": "Động từ", "meaning": "Bao che, che giấu (tội phạm, lỗi lầm)", "example_cn": "包庇罪犯是违法的行为。", "example_pinyin": "Bāobì zuìfàn shì wéifǎ de xíngwéi.", "example_vn": "Che giấu tội phạm là hành vi vi phạm pháp luật."}, {"id": 25, "hanzi": "包容", "pinyin": "bāoróng", "pos": "Động từ", "meaning": "Bao dung, rộng lượng, chứa đựng", "example_cn": "家庭需要互相包容和理解。", "example_pinyin": "Jiātíng xūyào hùxiāng bāoróng hé lǐjiě.", "example_vn": "Gia đình cần có sự bao dung và thấu hiểu lẫn nhau."}, {"id": 26, "hanzi": "饱经沧桑", "pinyin": "bǎo jīng cāng sāng", "pos": "Thành ngữ", "meaning": "Nếm trải đủ mùi đời, dạn dày sương gió", "example_cn": "这位老人的脸上写满了饱经沧桑。", "example_pinyin": "Zhè wèi lǎorén de liǎn shàng xiě mǎnle bǎo jīng cāng sāng.", "example_vn": "Khuôn mặt của cụ già này hiện rõ những thăng trầm đã nếm trải."}, {"id": 27, "hanzi": "宝贝", "pinyin": "bǎobèi", "pos": "Danh từ", "meaning": "Bảo bối, của quý, báu vật", "example_cn": "这个古董是他们家的宝贝。", "example_pinyin": "Zhè gè gǔdǒng shì tāmen jiā de bǎobèi.", "example_vn": "Món đồ cổ này là bảo bối của gia đình họ."}, {"id": 28, "hanzi": "保管", "pinyin": "bǎoguǎn", "pos": "Động từ", "meaning": "Bảo quản, trông nom, cất giữ", "example_cn": "请保管好您的贵重物品。", "example_pinyin": "Qǐng bǎoguǎn hǎo nín de guìzhòng wùpǐn.", "example_vn": "Vui lòng bảo quản tốt đồ vật quý giá của bạn."}, {"id": 29, "hanzi": "保密", "pinyin": "bǎomì", "pos": "Động từ", "meaning": "Bảo mật, giữ bí mật", "example_cn": "这件事你一定要严格保密。", "example_pinyin": "Zhè jiàn shì nǐ yídìng yào yángé bǎomì.", "example_vn": "Chuyện này bạn nhất định phải giữ bí mật nghiêm ngặt."}, {"id": 30, "hanzi": "保姆", "pinyin": "bǎomǔ", "pos": "Danh từ", "meaning": "Bảo mẫu, người giúp việc trông trẻ", "example_cn": "他们家请了一位经验丰富的保姆。", "example_pinyin": "Tāmen jiā qǐngle yí wèi jīngyàn fēngfù de bǎomǔ.", "example_vn": "Gia đình họ đã thuê một người giúp việc giàu kinh nghiệm."}, {"id": 31, "hanzi": "保守", "pinyin": "bǎoshǒu", "pos": "Tính từ", "meaning": "Bảo thủ, lạc hậu, không chịu đổi mới", "example_cn": "他的思想比较保守。", "example_pinyin": "Tā de sīxiǎng bǐjiào bǎoshǒu.", "example_vn": "Tư tưởng của anh ấy khá bảo thủ."}, {"id": 32, "hanzi": "保卫", "pinyin": "bǎowèi", "pos": "Động từ", "meaning": "Bảo vệ, giữ gìn", "example_cn": "战士们用生命保卫祖国。", "example_pinyin": "Zhànshìmen yòng shēngmìng bǎowèi zǔguó.", "example_vn": "Các chiến sĩ dùng tính mạng để bảo vệ tổ quốc."}, {"id": 33, "hanzi": "保养", "pinyin": "bǎoyǎng", "pos": "Động từ", "meaning": "Bảo dưỡng, giữ gìn sức khỏe, tu sửa", "example_cn": "汽车需要定期进行保养。", "example_pinyin": "Qìchē xūyào dìngqī jìnxíng bǎoyǎng.", "example_vn": "Ô tô cần được bảo dưỡng định kỳ."}, {"id": 34, "hanzi": "保障", "pinyin": "bǎozhàng", "pos": "Động từ", "meaning": "Bảo đảm, bảo trợ (quyền lợi, cuộc sống)", "example_cn": "劳动者的合法权益应得到保障。", "example_pinyin": "Láodòngzhě de héfǎ quányì yīng dédào bǎozhàng.", "example_vn": "Quyền lợi hợp pháp của người lao động cần được bảo đảm."}, {"id": 35, "hanzi": "报仇", "pinyin": "bàochóu", "pos": "Động từ", "meaning": "Báo thù, trả thù", "example_cn": "他发誓要为父亲报仇。", "example_pinyin": "Tā fāshì yào wèi fùqīn bàochóu.", "example_vn": "Anh ấy thề sẽ trả thù cho cha."}, {"id": 36, "hanzi": "报酬", "pinyin": "bàochou", "pos": "Danh từ", "meaning": "Thù lao, tiền công, tiền thưởng", "example_cn": "这份工作的报酬非常丰厚。", "example_pinyin": "Zhè fèn gōngzuò de bàochou fēicháng fēnghòu.", "example_vn": "Thù lao của công việc này rất hậu hĩnh."}, {"id": 37, "hanzi": "报答", "pinyin": "bàodá", "pos": "Động từ", "meaning": "Báo đáp, đền đáp ơn nghĩa", "example_cn": "我们要报答父母的养育之恩。", "example_pinyin": "Wǒmen yào bàodá fùmǔ de yǎngyù zhī ēn.", "example_vn": "Chúng ta phải đền đáp công ơn dưỡng dục của cha mẹ."}, {"id": 38, "hanzi": "报销", "pinyin": "bàoxiāo", "pos": "Động từ", "meaning": "Thanh toán, quyết toán hóa đơn", "example_cn": "出差 lines的费用可以报销。", "example_pinyin": "Chūchāi de fèiyòng kěyǐ bàoxiāo.", "example_vn": "Chi phí đi công tác có thể thanh toán lại."}, {"id": 39, "hanzi": "爆发", "pinyin": "bàofā", "pos": "Động từ", "meaning": "Bùng nổ, bộc phát (chiến tranh, núi lửa)", "example_cn": "战争在毫无预兆的情况下爆发了。", "example_pinyin": "Zhànzhēng zài háowú yùzhào de qíngkuàng xià bàofāle.", "example_vn": "Chiến tranh đã bùng nổ mà không có điềm báo trước."}, {"id": 40, "hanzi": "爆炸", "pinyin": "bàozhà", "pos": "Động từ", "meaning": "Nổ, bùng nổ (bom, dân số, thông tin)", "example_cn": "工厂昨晚发生了剧烈的爆炸。", "example_pinyin": "Gōngchǎng zuówǎn fāshēngle jùliè de bàozhà.", "example_vn": "Nhà máy đã xảy ra một vụ nổ dữ dội vào tối qua."}, {"id": 41, "hanzi": "卑鄙", "pinyin": "bēibǐ", "pos": "Tính từ", "meaning": "Bỉ ổi, đê tiện, hèn hạ", "example_cn": "采用这种卑鄙的手段是可耻的。", "example_pinyin": "Cǎiyòng zhèzhǒng bēibǐ de shǒuduàn shì kěchǐ de.", "example_vn": "Sử dụng thủ đoạn bỉ ổi này thật là đáng xấu hổ."}, {"id": 42, "hanzi": "悲哀", "pinyin": "bēi'āi", "pos": "Tính từ", "meaning": "Bi ai, đau thương, buồn rầu", "example_cn": "听到这个消息,大家都感到无比悲哀。", "example_pinyin": "Tīngdào zhè gè xiāoxi, dàjiā dōu gǎndào wúbǐ bēi'āi.", "example_vn": "Nghe tin này, ai nấy đều cảm thấy vô cùng đau thương."}, {"id": 43, "hanzi": "悲惨", "pinyin": "bēicǎn", "pos": "Tính từ", "meaning": "Bi thảm, thê thảm, thảm khốc", "example_cn": "小说主人公的身世非常悲惨。", "example_pinyin": "Xiǎoshuō zhǔréngōng de shēnshì fēicháng bēicǎn.", "example_vn": "Thân thế của nhân vật chính trong tiểu thuyết rất thê thảm."}, {"id": 44, "hanzi": "北极", "pinyin": "běijí", "pos": "Danh từ", "meaning": "Bắc Cực", "example_cn": "北极的冰川正在加速融化。", "example_pinyin": "Běijí de bīngchuān zhèngzài jiāsù rónghuà.", "example_vn": "Các sông băng ở Bắc Cực đang tan chảy nhanh chóng."}, {"id": 45, "hanzi": "被动", "pinyin": "bèidòng", "pos": "Tính từ", "meaning": "Bị động, thụ động", "example_cn": "我们在工作中不能总是处于被动状态。", "example_pinyin": "Wǒmen zài gōngzuò zhōng bùnéng zǒngshì chǔyú bèidòng zhuàngtài.", "example_vn": "Chúng ta không thể luôn ở trong trạng thái bị động khi làm việc."}, {"id": 46, "hanzi": "被告", "pinyin": "bèigào", "pos": "Danh từ", "meaning": "Bị cáo (trong luật pháp)", "example_cn": "被告在法庭上为自己进行了辩护。", "example_pinyin": "Bèigào zài fǎtíng shàng wèi zìjǐ jìnxíngle biànhù.", "example_vn": "Bị cáo đã tự bào chữa cho mình trước tòa."}, {"id": 47, "hanzi": "奔波", "pinyin": "bēnbō", "pos": "Động từ", "meaning": "Bôn ba, vất vả chạy vạy ngược xuôi", "example_cn": "为了生活，他常年在外奔波。", "example_pinyin": "Wèi le shēnghuó, tā chángnián zàiwài bēnbō.", "example_vn": "Vì cuộc sống, anh ấy quanh năm bôn ba bên ngoài."}, {"id": 48, "hanzi": "奔驰", "pinyin": "bēnchí", "pos": "Động từ", "meaning": "Lao nhanh, chạy băng băng", "example_cn": "骏马在广阔的草原上奔驰。", "example_pinyin": "Jùnmǎ zài guǎngkuò de cǎoyuán shàng bēnchí.", "example_vn": "Ngựa hay phi băng băng trên đồng cỏ bao la."}, {"id": 49, "hanzi": "本能", "pinyin": "běnnéng", "pos": "Danh từ", "meaning": "Bản năng", "example_cn": "求生是所有动物的本能。", "example_pinyin": "Qiúshēng shì suǒyǒu dòngwù de běnnéng.", "example_vn": "Ham sống sợ chết là bản năng của mọi loài động vật."}, {"id": 50, "hanzi": "本钱", "pinyin": "běnqián", "pos": "Danh từ", "meaning": "Vốn liếng, tiền vốn", "example_cn": "身体健康是努力工作的本钱。", "example_pinyin": "Shēntǐ jiànkāng shì nǔlì gōngzuò de běnqián.", "example_vn": "Sức khỏe cơ thể chính là vốn liếng để làm việc chăm chỉ."}, {"id": 51, "hanzi": "本人", "pinyin": "běnrén", "pos": "Danh từ", "meaning": "Bản thân, chính mình", "example_cn": "这封信需要由本人亲自签收。", "example_pinyin": "Zhè fēng xìn xūyào yóu běnrén qīnzì qiānshōu.", "example_vn": "Bức thư này cần phải do chính người nhận ký nhận."}, {"id": 52, "hanzi": "本身", "pinyin": "běnshēn", "pos": "Danh từ", "meaning": "Bản thân nó, chính nó", "example_cn": "这件事本身并没有什么错。", "example_pinyin": "Zhè jiàn shì běnshēn bìng méiyǒu shénme cuò.", "example_vn": "Bản thân việc này không có gì sai cả."}, {"id": 53, "hanzi": "本着", "pinyin": "běnzháo", "pos": "Giới từ", "meaning": "Dựa vào, căn cứ vào, trên tinh thần", "example_cn": "本着公平创新的原则，我们开展了合作。", "example_pinyin": "Běnzhe gōngpíng chuàngxīn de yuánzé, wǒmen kāizhǎnle hézuò.", "example_vn": "Trên tinh thần công bằng và sáng tạo, chúng tôi đã hợp tác."}, {"id": 54, "hanzi": "笨拙", "pinyin": "bènzhuō", "pos": "Tính từ", "meaning": "Vụng về, đần độn, chậm chạp", "example_cn": "他的动作虽然笨拙，但非常认真。", "example_pinyin": "Tā de dòngzuò suīrán bènzhuō, dàn fēicháng rènzhēn.", "example_vn": "Động tác của anh ấy tuy vụng về nhưng rất nghiêm túc."}, {"id": 55, "hanzi": "崩溃", "pinyin": "bēngkuì", "pos": "Động từ", "meaning": "Sụp đổ, tan rã, hoảng loạn tâm lý", "example_cn": "股市暴跌导致许多投资者的心理崩溃。", "example_pinyin": "Gǔshì bàodiē dǎozhì xǔduō tóuzīzhě de xīnlǐ bēngkuì.", "example_vn": "Thị trường chứng khoán lao dốc khiến tâm lý nhiều nhà đầu tư sụp đổ."}, {"id": 56, "hanzi": "甭", "pinyin": "béng", "pos": "Phó từ", "meaning": "Không cần, khỏi phải (viết tắt của 不用)", "example_cn": "你甭客气，这点小事不算什么。", "example_pinyin": "Nǐ béng kèqì, zhè diǎn xiǎoshì bú suàn shénme.", "example_vn": "Bạn không cần khách khí, chút chuyện nhỏ này có là gì đâu."}, {"id": 57, "hanzi": "迸发", "pinyin": "bèngfā", "pos": "Động từ", "meaning": "Bộc phát, phun trào, tràn ra", "example_cn": "现场迸发出热烈的掌声。", "example_pinyin": "Xiànchǎng bèngfā chū rèliè de zhǎngshēng.", "example_vn": "Hiện trường bùng nổ những tràng pháo tay nồng nhiệt."}, {"id": 58, "hanzi": "逼迫", "pinyin": "bīpò", "pos": "Động từ", "meaning": "Ép buộc, bức bách, bắt ép", "example_cn": "谁也不能逼迫他做不愿意做的事。", "example_pinyin": "Shéi yě bùnéng bīpò tā zuò bú yuànyì zuò de shì.", "example_vn": "Không ai có thể ép buộc anh ấy làm việc mình không muốn."}, {"id": 59, "hanzi": "鼻涕", "pinyin": "bítì", "pos": "Danh từ", "meaning": "Nước mũi", "example_cn": "他感冒了，流了不少鼻涕。", "example_pinyin": "Tā gǎnmàole, liúle bùshǎo bítì.", "example_vn": "Anh ấy bị cảm rồi, chảy không ít nước mũi."}, {"id": 60, "hanzi": "比重", "pinyin": "bǐzhòng", "pos": "Danh từ", "meaning": "Tỷ trọng, phần quan trọng", "example_cn": "工业在国民经济中的比重很大。", "example_pinyin": "Gōngyè zài guómín jīngjì zhōng de bǐzhòng hěn dà.", "example_vn": "Tỷ trọng của công nghiệp trong nền kinh tế quốc dân rất lớn."}, {"id": 61, "hanzi": "彼此", "pinyin": "bǐcǐ", "pos": "Đại từ", "meaning": "Lẫn nhau, hai bên, bên này bên kia", "example_cn": "我们应该互相尊重，不分彼此。", "example_pinyin": "Wǒmen yīnggāi hùxiāng zūnzhòng, bù fēn bǐcǐ.", "example_vn": "Chúng ta nên tôn trọng lẫn nhau, không phân biệt bên này bên kia."}, {"id": 62, "hanzi": "必修", "pinyin": "bìxiū", "pos": "Tính từ", "meaning": "Bắt buộc (môn học, khóa học)", "example_cn": "英语是所有学生的必修课。", "example_pinyin": "Yīngyǔ shì suǒyǒu xuéshēng de bìxiūkè.", "example_vn": "Tiếng Anh là môn học bắt buộc của tất cả học sinh."}, {"id": 63, "hanzi": "毕竟", "pinyin": "bìjìng", "pos": "Phó từ", "meaning": "Rốt cuộc, suy cho cùng", "example_cn": "他毕竟还是个孩子，难免会犯错。", "example_pinyin": "Tā bìjìng háishì gè háizi, nánmiǎn huì fàncuò.", "example_vn": "Nó rốt cuộc vẫn là một đứa trẻ, khó tránh khỏi phạm sai lầm."}, {"id": 64, "hanzi": "避免", "pinyin": "bìmiǎn", "pos": "Động từ", "meaning": "Tránh, tránh khỏi để xảy ra", "example_cn": "通过沟通可以避免误会的发生。", "example_pinyin": "Tōngguò gōutōng kěyǐ bìmiǎn wùhuì de fāshēng。", "example_vn": "Thông qua giao tiếp có thể tránh được hiểu lầm xảy ra."}, {"id": 65, "hanzi": "闭塞", "pinyin": "bìsè", "pos": "Tính từ", "meaning": "Tắc nghẽn, hẻo lánh, thiếu thông tin", "example_cn": "这里交通闭塞， tin tức 比较落后。", "example_pinyin": "Zhèli jiāotōng bìsè, xīnxī bǐjiào luòhòu.", "example_vn": "Nơi này giao thông hẻo lánh, thông tin khá lạc hậu."}, {"id": 66, "hanzi": "庇护", "pinyin": "bìhù", "pos": "Động từ", "meaning": "Che chở, bảo hộ, dung túng", "example_cn": "法律不会庇护任何犯罪分子。", "example_pinyin": "Fǎlǜ búhuì bìhù rènhé fànzuì fènzǐ.", "example_vn": "Pháp luật sẽ không che chở cho bất kỳ phần tử tội phạm nào."}, {"id": 67, "hanzi": "臂", "pinyin": "bì", "pos": "Danh từ", "meaning": "Cánh tay", "example_cn": "他用强壮的臂膀扛起了重物。", "example_pinyin": "Tā yòng qiángzhuàng de bìbǎng káng qǐle zhòngwù.", "example_vn": "Anh ấy dùng cánh tay mạnh mẽ của mình vác vật nặng lên."}, {"id": 68, "hanzi": "边界", "pinyin": "biānjiè", "pos": "Danh từ", "meaning": "Biên giới, ranh giới (quốc gia, lãnh thổ)", "example_cn": "两国签署了边界和平协议。", "example_pinyin": "Liǎng guó qiānshǔle biānjiè hépíng xiéyì.", "example_vn": "Hai nước đã ký kết hiệp định hòa bình biên giới."}, {"id": 69, "hanzi": "边疆", "pinyin": "biānjiāng", "pos": "Danh từ", "meaning": "Biên cương, vùng biên giới xa xôi", "example_cn": "许多青年志愿去开发边疆。", "example_pinyin": "Xǔduō qīngnián zhìyuàn qù kāifā biānjiāng.", "example_vn": "Nhiều thanh niên tình nguyện đi phát triển vùng biên cương."}, {"id": 70, "hanzi": "边缘", "pinyin": "biānyuán", "pos": "Danh từ", "meaning": "Rìa, mép, bờ vực", "example_cn": "这家企业正处于 ngập tràn 破产的边缘。", "example_pinyin": "Zhè jiā qǐyè zhèng chǔyú pòchǎn de biānyuán.", "example_vn": "Doanh nghiệp này đang nằm bên bờ vực phá sản."}, {"id": 71, "hanzi": "编织", "pinyin": "biānzhī", "pos": "Động từ", "meaning": "Đan tết, dệt vải, thêu dệt ước mơ", "example_cn": "她用毛线编织了一件毛衣。", "example_pinyin": "Tā yòng máoxiàn biānzhīle yí jiàn máoyī.", "example_vn": "Cô ấy dùng len đan một chiếc áo len."}, {"id": 72, "hanzi": "鞭策", "pinyin": "biāncè", "pos": "Động từ", "meaning": "Thúc đẩy, roi thúc, cổ vũ tiến lên", "example_cn": "老师的期望时时刻刻鞭策着我。", "example_pinyin": "Lǎoshī de qīwàng shíshíkèkè biāncèzhe wǒ.", "example_vn": "Sự kỳ vọng của thầy cô luôn luôn thúc đẩy tôi tiến lên."}, {"id": 73, "hanzi": "贬低", "pinyin": "biǎndī", "pos": "Động từ", "meaning": "Hạ thấp, đánh giá thấp, gièm pha", "example_cn": "不要为了抬高自己而贬低别人。", "example_pinyin": "Búyào wèi le táigāo zìjǐ ér biǎndī biérén.", "example_vn": "Đừng hạ thấp người khác để nâng cao bản thân mình."}, {"id": 74, "hanzi": "贬义", "pinyin": "biǎnyì", "pos": "Danh từ", "meaning": "Nghĩa xấu, nghĩa hạ thấp (từ vựng)", "example_cn": "这个词在现代汉语中带有贬义。", "example_pinyin": "Zhè gè cí zài xiàndài hànyǔ zhōng dàiyǒu biǎnyì.", "example_vn": "Từ này mang nghĩa xấu trong tiếng Trung hiện đại."}, {"id": 75, "hanzi": "扁", "pinyin": "biǎn", "pos": "Tính từ", "meaning": "Dẹt, bẹt, mỏng", "example_cn": "鸭子的嘴巴是扁的。", "example_pinyin": "Yāzi de zuǐba shì biǎn de.", "example_vn": "Mỏ của con vịt thì dẹt."}, {"id": 76, "hanzi": "变故", "pinyin": "biàngù", "pos": "Danh từ", "meaning": "Biến cố, sự cố bất ngờ", "example_cn": "天有不测风云，家庭突遭变故。", "example_pinyin": "Tiān yǒu búcè fēngyún, jiātíng tū zāo biàngù.", "example_vn": "Trời có gió bão khôn lường, gia đình đột ngột gặp biến cố."}, {"id": 77, "hanzi": "变质", "pinyin": "biànzhì", "pos": "Động từ", "meaning": "Biến chất, hỏng (thức ăn), suy thoái đạo đức", "example_cn": "牛奶已经变质，不能再喝了。", "example_pinyin": "Niúnǎi yǐjīng biànzhì, bùnéng zài hē le.", "example_vn": "Sữa đã bị hỏng rồi, không thể uống được nữa."}, {"id": 78, "hanzi": "辩护", "pinyin": "biànhù", "pos": "Động từ", "meaning": "Biện hộ, bào chữa (trước tòa, lý lẽ)", "example_cn": "律师极力为被告进行辩护。", "example_pinyin": "Lǜshī jílì wèi bèigào jìnxíng biànhù.", "example_vn": "Luật sư hết sức bào chữa cho bị cáo."}, {"id": 79, "hanzi": "辩解", "pinyin": "biànjiě", "pos": "Động từ", "meaning": "Biện bạch, thanh minh, giải thích hoãn binh", "example_cn": "面对事实，任何辩解都是无力的。", "example_pinyin": "Miànduì shìshí, rènhé biànjiě dōu shì wúlì de.", "example_vn": "Đối mặt với sự thật, mọi lời biện bạch đều là vô lực."}, {"id": 80, "hanzi": "辩证", "pinyin": "biànzhèng", "pos": "Tính từ", "meaning": "Biện chứng, tư duy toàn diện", "example_cn": "我们要用辩证的观点来看待问题。", "example_pinyin": "Wǒmen yào yòng biànzhèng de guāndiǎn lái kàndài wèntí.", "example_vn": "Chúng ta cần nhìn nhận vấn đề bằng quan điểm biện chứng."}, {"id": 81, "hanzi": "便条", "pinyin": "biàntiáo", "pos": "Danh từ", "meaning": "Giấy ghi chú, mảnh giấy nhắn", "example_cn": "她出门前给妈妈留了一张便条。", "example_pinyin": "Tā chūmén qián gěi māma liúle yì zhāng biàntiáo.", "example_vn": "Trước khi ra ngoài, cô ấy đã để lại một mảnh giấy nhắn cho mẹ."}, {"id": 82, "hanzi": "便于", "pinyin": "biànyú", "pos": "Động từ", "meaning": "Thuận tiện cho, dễ dàng cho việc gì", "example_cn": "新机场的设计更便于旅客换乘。", "example_pinyin": "Xīn jīchǎng de shèjì gèng biànyú lǚkè huànchéng.", "example_vn": "Thiết kế của sân bay mới thuận tiện hơn cho hành khách chuyển chuyến."}, {"id": 83, "hanzi": "遍布", "pinyin": "biànbù", "pos": "Động từ", "meaning": "Trải khắp, phân bố khắp nơi", "example_cn": "我们的销售网络遍布全国。", "example_pinyin": "Wǒmen de xiāoshòu wǎngluò biànbù quánguó.", "example_vn": "Mạng lưới bán hàng của chúng tôi trải khắp toàn quốc."}, {"id": 84, "hanzi": "标本", "pinyin": "biāoběn", "pos": "Danh từ", "meaning": "Tiêu bản, mẫu vật (động thực vật)", "example_cn": "博物馆里陈列着许多恐龙化石标本。", "example_pinyin": "Bówùguǎn lǐ chénlièzhe xǔduō kǒnglóng huàshí biāoběn.", "example_vn": "Trong bảo tàng trưng bày nhiều mẫu vật hóa thạch khủng long."}, {"id": 85, "hanzi": "标记", "pinyin": "biāojì", "pos": "Danh từ/Động từ", "meaning": "Ký hiệu, dấu hiệu, đánh dấu", "example_cn": "他在地图上做了一个红色的标记。", "example_pinyin": "Tā zài dìtú shàng zuòle yí gè hóngsè de biāojì.", "example_vn": "Anh ấy đã làm một dấu màu đỏ trên bản đồ."}, {"id": 86, "hanzi": "标题", "pinyin": "biāotí", "pos": "Danh từ", "meaning": "Tiêu đề, tựa đề bài viết", "example_cn": "文章的标题应该简明扼要。", "example_pinyin": "Wénzhāng de biāotí yīnggāi jiǎnmíng èyào.", "example_vn": "Tiêu đề của bài viết nên ngắn gọn súc tích."}, {"id": 87, "hanzi": "表彰", "pinyin": "biǎozhāng", "pos": "Động từ", "meaning": "Biểu dương, khen ngợi, tuyên dương", "example_cn": "大会表彰了一批先进工作者。", "example_pinyin": "Dàhuì biǎozhāngle yì pī xiānjìn gōngzuòzhě.", "example_vn": "Đại hội đã biểu dương một nhóm người lao động tiên tiến."}, {"id": 88, "hanzi": "憋", "pinyin": "biē", "pos": "Động từ", "meaning": "Nhịn, kìm nén, ngột ngạt, nín thở", "example_cn": "他把心里的话憋了很久才说出来。", "example_pinyin": "Tā bǎ xīnlǐ de huà biēle hěn jiǔ cái shuō chūlái.", "example_vn": "Anh ấy kìm nén lời trong lòng rất lâu mới nói ra."}, {"id": 89, "hanzi": "别墅", "pinyin": "biéshù", "pos": "Danh từ", "meaning": "Biệt thự", "example_cn": "他们家在郊区买了一栋海边别墅。", "example_pinyin": "Tāmen jiā zài jiāoqū mǎile yí dòng hǎibiān biéshù.", "example_vn": "Gia đình họ đã mua một căn biệt thự ven biển ở ngoại ô."}, {"id": 90, "hanzi": "别致", "pinyin": "biézhì", "pos": "Tính từ", "meaning": "Độc đáo, đặc sắc, mới lạ", "example_cn": "这件衣服的设计非常别致。", "example_pinyin": "Zhè jiàn yīfú de shèjì fēicháng biézhì.", "example_vn": "Thiết kế của bộ quần áo này rất độc đáo."}, {"id": 91, "hanzi": "别扭", "pinyin": "bièniu", "pos": "Tính từ", "meaning": "Khó chịu, kỳ cục, không thuận miệng", "example_cn": "这句话读起来感觉有点别扭。", "example_pinyin": "Zhè jù huà dú qǐlái gǎnjué yǒudiǎn bièniu.", "example_vn": "Câu này đọc lên cảm thấy hơi kỳ cục khó chịu."}, {"id": 92, "hanzi": "濒临", "pinyin": "bīnlín", "pos": "Động từ", "meaning": "Cận kề, bên bờ vực (phá sản, tuyệt chủng)", "example_cn": "这种珍稀动物正濒临灭绝。", "example_pinyin": "Zhèzhǒng zhēnxī dòngwù zhèng bīnlín mièjué.", "example_vn": "Loài động vật quý hiếm này đang bên bờ vực tuyệt chủng."}, {"id": 93, "hanzi": "冰雹", "pinyin": "bīngbáo", "pos": "Danh từ", "meaning": "Mưa đá", "example_cn": "昨天的暴风雨夹杂着巨大的冰雹。", "example_pinyin": "Zuótiān de bàofēngyǔ jiāzázhe jùdà de bīngbáo.", "example_vn": "Trận bão hôm qua kèm theo những viên mưa đá lớn."}, {"id": 94, "hanzi": "丙", "pinyin": "bǐng", "pos": "Danh từ", "meaning": "Bính (vị trí thứ 3 trong Thiên can, hạng C)", "example_cn": "由于表现一般，他的考核评级为丙。", "example_pinyin": "Yóuyú biǎoxiàn yìbān, tā de kǎohé píngjí wèi bǐng.", "example_vn": "Do biểu hiện bình thường, đánh giá xếp loại của anh ấy là hạng C."}, {"id": 95, "hanzi": "并非", "pinyin": "bìngfēi", "pos": "Phó từ", "meaning": "Tuyệt nhiên không phải, không hẳn là", "example_cn": "成功并非一朝一夕就能实现的。", "example_pinyin": "Chénggōng bìngfēi yì zhāo yī xī jiù néng shíxiàn de.", "example_vn": "Thành công tuyệt nhiên không phải một sớm một chiều là đạt được."}, {"id": 96, "hanzi": "并列", "pinyin": "bìngliè", "pos": "Động từ", "meaning": "Xếp ngang hàng, đồng hạng, song song", "example_cn": "两位选手在比赛中并列第一名。", "example_pinyin": "Liǎng wèi xuǎnshǒu zài bǐsài zhōng bìngliè dì-yī míng.", "example_vn": "Hai tuyển thủ xếp ngang hàng vị trí thứ nhất trong cuộc thi."}, {"id": 97, "hanzi": "拨", "pinyin": "bō", "pos": "Động từ", "meaning": "Gạt sang, gẩy, quay số, phân phát (vốn)", "example_cn": "请拨打我们的客服热线电话。", "example_pinyin": "Qǐng bōdǎ wǒmen de kèfù rèxiàn diànhuà.", "example_vn": "Vui lòng quay số gọi điện thoại hotline chăm sóc khách hàng của chúng tôi."}, {"id": 98, "hanzi": "波浪", "pinyin": "bōlàng", "pos": "Danh từ", "meaning": "Sóng lượn, làn sóng nhỏ", "example_cn": "海面上翻滾着层层波浪。", "example_pinyin": "Hǎimiàn shàng fāngǔnzhe céngcéng bōlàng.", "example_vn": "Trên mặt biển cuộn lên từng tầng sóng lượn."}, {"id": 99, "hanzi": "波涛", "pinyin": "bōtāo", "pos": "Danh từ", "meaning": "Sóng cuồn cuộn, sóng lớn hùng vĩ", "example_cn": "轮船在汹涌的波涛中前进。", "example_pinyin": "Lúnchuán zài xiōngyǒng de bōtāo zhōng qiánjìn.", "example_vn": "Tàu thủy tiến lên trong những con sóng lớn dữ dội."}, {"id": 100, "hanzi": "剥削", "pinyin": "bōxuē", "pos": "Động từ", "meaning": "Bóc lột", "example_cn": "地主残酷地剥削贫苦的农民。", "example_pinyin": "Dìzhǔ cánkù de bōxuē pínkǔ de nóngmín.", "example_vn": "Địa chủ bóc lột nông dân nghèo khổ một cách tàn nhẫn."}, {"id": 101, "hanzi": "播种", "pinyin": "bōzhòng", "pos": "Động từ", "meaning": "Gieo hạt, gieo mầm", "example_cn": "春天是播种的最好季节。", "example_pinyin": "Chūntiān shì bōzhòng de zuì hǎo jìjié.", "example_vn": "Mùa xuân là mùa tốt nhất để gieo hạt."}, {"id": 102, "hanzi": "博大精深", "pinyin": "bó dà jīng shēn", "pos": "Thành ngữ", "meaning": "Rộng lớn tinh sâu (học vấn, văn hóa)", "example_cn": "中国传统文化博大精深。", "example_pinyin": "Zhōngguó chuántǒng wénhuà bó dà jīng shēn.", "example_vn": "Văn hóa truyền thống Trung Quốc rộng lớn tinh sâu."}, {"id": 103, "hanzi": "博览会", "pinyin": "bólǎnhuì", "pos": "Danh từ", "meaning": "Hội chợ triển lãm quy mô lớn", "example_cn": "世界园艺博览会吸引了众多游客。", "example_pinyin": "Shìjiè yuányì bólǎnhuì xīyǐnle zhòngduō yóukè.", "example_vn": "Hội chợ triển lãm làm vườn thế giới thu hút đông đảo du khách."}, {"id": 104, "hanzi": "搏斗", "pinyin": "bódòu", "pos": "Động từ", "meaning": "Đấu tranh, vật lộn, chiến đấu sinh tử", "example_cn": "警察与歹徒进行了激烈的搏斗。", "example_pinyin": "Jǐngchá yǔ dǎitú jìnxíngle jīliè de bódòu.", "example_vn": "Cảnh sát đã có cuộc vật lộn kịch liệt với tên tội phạm."}, {"id": 105, "hanzi": "薄弱", "pinyin": "bóruò", "pos": "Tính từ", "meaning": "Yếu ớt, mong manh, dễ vỡ", "example_cn": "他的意志力比较薄弱。", "example_pinyin": "Tā de yìzhìlì bǐjiào bóruò.", "example_vn": "Ý chí của anh ấy khá yếu ớt."}, {"id": 106, "hanzi": "补救", "pinyin": "bǔjiù", "pos": "Động từ", "meaning": "Cứu vãn, bù đắp, khắc phục hậu quả", "example_cn": "我们必须采取措施来补救损失。", "example_pinyin": "Wǒmen mìxū cǎiqǔ cuòshī lái bǔjiù sǔnshī.", "example_vn": "Chúng ta phải áp dụng các biện pháp để khắc phục tổn thất."}, {"id": 107, "hanzi": "补贴", "pinyin": "bǔtiē", "pos": "Danh từ/Động từ", "meaning": "Trợ cấp, phụ cấp tiền nong", "example_cn": "政府给低收入家庭发放生活补贴。", "example_pinyin": "Zhèngfǔ gěi dī shōurù jiātíng fāfàng shēnghuó bǔtiē.", "example_vn": "Chính phủ cấp trợ cấp sinh hoạt cho các gia đình có thu nhập thấp."}, {"id": 108, "hanzi": "哺乳", "pinyin": "bǔrǔ", "pos": "Động từ", "meaning": "Cho con bú, nuôi con bằng sữa", "example_cn": "母乳喂养是很好的哺乳方式。", "example_pinyin": "Mǔrǔ wèiyǎng shì hěn hǎo de bǔrǔ fāngshì.", "example_vn": "Nuôi con bằng sữa mẹ là phương thức cho bú rất tốt."}, {"id": 109, "hanzi": "捕捉", "pinyin": "bǔzhuō", "pos": "Động từ", "meaning": "Bắt, nắm bắt (cơ hội, hình ảnh, thông tin)", "example_cn": "摄影师成功捕捉到了那个精彩的瞬间。", "example_pinyin": "Shèyǐngshī chénggōng bǔzhuō dàole nàgè jīngcǎi de shùnjiān.", "example_vn": "Nhiếp ảnh gia đã bắt trọn khoảnh khắc tuyệt vời đó thành công."}, {"id": 110, "hanzi": "不敢当", "pinyin": "bùgǎndāng", "pos": "Động từ", "meaning": "Không dám nhận, tổn thọ (lời khen khiêm tốn)", "example_cn": "您这么夸我，我真的不敢当。", "example_pinyin": "Nín zhème kuā wǒ, wǒ zhēnde bùgǎndāng.", "example_vn": "Ngài khen tôi như vậy, tôi thật sự không dám nhận."}, {"id": 111, "hanzi": "不顾", "pinyin": "búgù", "pos": "Động từ", "meaning": "Bất chấp, không màng đến, phớt lờ", "example_cn": "他不顾身体健康，连续加班工作。", "example_pinyin": "Tā búgù shēntǐ jiànkāng, liánxù jiābān gōngzuò.", "example_vn": "Anh ấy bất chấp sức khỏe cơ thể, liên tục tăng ca làm việc."}, {"id": 112, "hanzi": "不禁", "pinyin": "bùjīn", "pos": "Phó từ", "meaning": "Không kìm được, không nén nổi", "example_cn": "想到伤心处，她不禁流下眼泪。", "example_pinyin": "Xiǎngdào shāngxīn chù, tā bùjīn liú xià yǎnlèi.", "example_vn": "Nghĩ đến chuyện đau lòng, cô ấy không kìm được rơi nước mắt."}, {"id": 113, "hanzi": "不免", "pinyin": "bùmiǎn", "pos": "Phó từ", "meaning": "Không tránh khỏi, tất nhiên sẽ xảy ra", "example_cn": "年轻人经验不足，不免会犯一些错误。", "example_pinyin": "Niánqīngrén jīngyàn bùzú, bùmiǎn huì fàn yìxiē cuòwù.", "example_vn": "Người trẻ tuổi kinh nghiệm thiếu sót, không tránh khỏi sẽ phạm một số sai lầm."}, {"id": 114, "hanzi": "不胜枚举", "pinyin": "bú shèng méi jǔ", "pos": "Thành ngữ", "meaning": "Nhiều không đếm xuể, kể không hết", "example_cn": "由于时间有限，这样的例子不胜枚举。", "example_pinyin": "Yóuyú shíjiān yǒuxiàn, zhèyàng de lìzi bú shèng méi jǔ.", "example_vn": "Do thời gian có hạn, những ví dụ như thế này nhiều không đếm xuể."}, {"id": 115, "hanzi": "不时", "pinyin": "bùshí", "pos": "Phó từ", "meaning": "Thường xuyên, thỉnh thoảng lại", "example_cn": "窗外不时传来阵阵鸟鸣声。", "example_pinyin": "Chuāngwài bùshí chuánlái zhènzhèn niǎomíng shēng.", "example_vn": "Ngoài cửa sổ thỉnh thoảng lại truyền đến tiếng chim hót líu lo."}, {"id": 116, "hanzi": "不惜", "pinyin": "bùxī", "pos": "Động từ", "meaning": "Không tiếc, không ngần ngại chi ra", "example_cn": "为了治好儿子的病，他不惜花光所有积蓄。", "example_pinyin": "Wèi le zhì hǎo érzi de bìng, tā bùxī huā guāng suǒyǒu jīxù.", "example_vn": "Để chữa khỏi bệnh cho con trai, ông ấy không tiếc tiêu hết toàn bộ tiền tích cóp."}, {"id": 117, "hanzi": "不相上下", "pinyin": "bù xiāng shàng xià", "pos": "Thành ngữ", "meaning": "Ngang tài ngang sức, không hơn không kém", "example_cn": "这两位棋手的水平不相上下。", "example_pinyin": "Zhè liǎng wèi qíshǒu de shuǐpíng bù xiāng shàng xià.", "example_vn": "Trình độ của hai kỳ thủ này ngang tài ngang sức."}, {"id": 118, "hanzi": "不像话", "pinyin": "búxiànghuà", "pos": "Tính từ", "meaning": "Không ra thể thống gì, quá đáng, tệ hại", "example_cn": "他居然对长辈撒谎，太不像话了。", "example_pinyin": "Tā jūrán duì zhǎngbèi sāhuǎng, tài búxiànghuà le.", "example_vn": "Anh ta vậy mà lại nói dối bề trên, thật không ra thể thống gì."}, {"id": 119, "hanzi": "不屑一顾", "pinyin": "bú xiè yí gù", "pos": "Thành ngữ", "meaning": "Không thèm nhìn, coi khinh, không thèm ngó ngàng", "example_cn": "他对名利表现得不屑一顾。", "example_pinyin": "Tā duì mínglì biǎoxiàn de bú xiè yí gù.", "example_vn": "Anh ấy thể hiện sự coi khinh đối với danh lợi."}, {"id": 120, "hanzi": "不言而喻", "pinyin": "bù yán ér yù", "pos": "Thành ngữ", "meaning": "Không nói cũng hiểu, hiển nhiên rõ ràng", "example_cn": "健康对每个人 pages 的重要性是不言而喻的。", "example_pinyin": "Jiànkāng duì měi gè rén de zhòngyàoxìng shì bù yán ér yù de.", "example_vn": "Tầm quan trọng của sức khỏe đối với mỗi người là điều không nói cũng hiểu."}, {"id": 121, "hanzi": "不由得", "pinyin": "bùyóude", "pos": "Phó từ", "meaning": "Không khỏi, tự nhiên, không kìm được", "example_cn": "听了这个笑话，我不由得笑出声来。", "example_pinyin": "Tīngle zhè gè xiàohua, wǒ bùyóude xiào chū shēng lái.", "example_vn": "Nghe câu chuyện cười này, tôi không khỏi bật cười thành tiếng."}, {"id": 122, "hanzi": "不择手段", "pinyin": "bù zé shǒu duàn", "pos": "Thành ngữ", "meaning": "Bất chấp thủ đoạn, không từ thủ đoạn", "example_cn": "为了达到目的，他竟然不择手段。", "example_pinyin": "Wèi le dádào mùdì, tā jìngrán bù zé shǒu duàn.", "example_vn": "Để đạt được mục đích, anh ta dẫu vậy lại bất chấp thủ đoạn."}, {"id": 123, "hanzi": "不止", "pinyin": "bùzhǐ", "pos": "Động từ", "meaning": "Không ngừng, không chỉ (vượt quá con số)", "example_cn": "去过长城的人不止他一个。", "example_pinyin": "Qùguò chángchéng de rén bùzhǐ tā yí gè.", "example_vn": "Người từng đi Vạn Lý Trường Thành không chỉ có một mình anh ấy."}, {"id": 124, "hanzi": "布告", "pinyin": "bùgào", "pos": "Danh từ", "meaning": "Thông báo, cáo thị công khai", "example_cn": "学校的布告栏上贴出了放假通知。", "example_pinyin": "Xuéxiào de bùgàolán shàng tiē chūle fàngjià tōngzhī.", "example_vn": "Trên bảng thông báo của trường đã dán thông báo nghỉ lễ."}, {"id": 125, "hanzi": "布局", "pinyin": "bùjú", "pos": "Danh từ/Động từ", "meaning": "Bố cục, quy hoạch sắp xếp", "example_cn": "这间卧室的家具布局非常合理。", "example_pinyin": "Zhè jiān wòshì de jiājù bùjú fēicháng hélǐ.", "example_vn": "Bố cục nội thất của căn phòng ngủ này rất hợp lý."}, {"id": 126, "hanzi": "布置", "pinyin": "bùzhì", "pos": "Động từ", "meaning": "Sắp xếp, trang trí phòng ốc, giao bài tập", "example_cn": "老师给同学们布置了家庭作业。", "example_pinyin": "Lǎoshī gěi tóngxuémen bùzhìle jiātíng zuòyè.", "example_vn": "Thầy giáo đã giao bài tập về nhà cho các học sinh."}, {"id": 127, "hanzi": "步伐", "pinyin": "bùfá", "pos": "Danh từ", "meaning": "Bước đi, tiến độ phát triển", "example_cn": "我们要跟上时代发展的步伐。", "example_pinyin": "Wǒmen yào gēn shàng shídài fāzhǎn de bùfá.", "example_vn": "Chúng ta cần theo kịp bước đi phát triển của thời đại."}, {"id": 128, "hanzi": "部署", "pinyin": "bùshǔ", "pos": "Động từ/Danh từ", "meaning": "Triển khai, bố trí lực lượng, kế hoạch", "example_cn": "领导正在部署下一步的工作任务。", "example_pinyin": "Lǐngdǎo zhèngzài bùshǔ xià yí bù de gōngzuò rènwù.", "example_vn": "Lãnh đạo đang triển khai nhiệm vụ công việc của bước tiếp theo."}, {"id": 129, "hanzi": "部位", "pinyin": "bùwèi", "pos": "Danh từ", "meaning": "Bộ phận, vị trí đặc định (trên cơ thể)", "example_cn": "医生检查了他受伤的部位。", "example_pinyin": "Yīshēng jiǎnchále tā shòushāng de bùwèi.", "example_vn": "Bác sĩ đã kiểm tra bộ phận bị thương của anh ấy."}, {"id": 130, "hanzi": "财产", "pinyin": "cáichǎn", "pos": "Danh từ", "meaning": "Tài sản", "example_cn": "国家依法保护公民的合法财产。", "example_pinyin": "Guójiā yīfǎ bǎohù gōngmín de héfǎ cáichǎn.", "example_vn": "Nhà nước bảo hộ tài sản hợp pháp của công dân theo pháp luật."}, {"id": 131, "hanzi": "财富", "pinyin": "cáifù", "pos": "Danh từ", "meaning": "Của cải, sự giàu sang, tài sản tinh thần", "example_cn": "知识是人类最宝贵的财富。", "example_pinyin": "Zhīshì shì rénlèi zuì bǎoguì de cáifù.", "example_vn": "Kiến thức là của cải quý giá nhất của nhân loại."}, {"id": 132, "hanzi": "财务", "pinyin": "cáiwù", "pos": "Danh từ", "meaning": "Tài chính công ty, sự vụ tiền nong", "example_cn": "这间公司的财务状况非常健康。", "example_pinyin": "Zhè jiàn gōngsī de cáiwù zhuàngkuàng fēicháng jiànkāng.", "example_vn": "Tình hình tài chính của công ty này rất khỏe mạnh."}, {"id": 133, "hanzi": "财政", "pinyin": "cáizhèng", "pos": "Danh từ", "meaning": "Tài chính nhà nước, ngân sách", "example_cn": "政府加大了对财政教育的投入。", "example_pinyin": "Zhèngfǔ jiādàle duì cáizhèng jiàoyù de tóurù.", "example_vn": "Chính phủ đã tăng cường đầu tư ngân sách cho giáo dục."}, {"id": 134, "hanzi": "裁缝", "pinyin": "cáifeng", "pos": "Danh từ", "meaning": "Thợ may", "example_cn": "她请优秀的裁缝做了一身旗袍。", "example_pinyin": "Tā qǐng yōuxiù de cáifeng zuòle yì shēn qípáo.", "example_vn": "Cô ấy đã thuê thợ may xuất sắc may một bộ sườn xám."}, {"id": 135, "hanzi": "裁判", "pinyin": "cáipàn", "pos": "Danh từ/Động từ", "meaning": "Trọng tài, phân xử", "example_cn": "裁判在这场足球赛中做出了公正的判罚。", "example_pinyin": "Cáipàn zài zhè chǎng zúqiúsài zhōng zuòchūle gōngzhèng de pànfá.", "example_vn": "Trọng tài đã đưa ra quyết định xử phạt công bằng trong trận bóng đá này."}, {"id": 136, "hanzi": "裁员", "pinyin": "cáiyuán", "pos": "Động từ", "meaning": "Cắt giảm nhân sự, sa thải vì kinh tế", "example_cn": "经济 recession 逼得许多公司不得不裁员。", "example_pinyin": "Jīngjì tuituì bī de xǔduō gōngsī bùdébù cáiyuán.", "example_vn": "Kinh tế suy thoái ép buộc nhiều công ty phải cắt giảm nhân sự."}, {"id": 137, "hanzi": "采购", "pinyin": "cǎigòu", "pos": "Động từ", "meaning": "Thu mua, mua sắm số lượng lớn cho tổ chức", "example_cn": "学校采购了一批新的实验设备。", "example_pinyin": "Xuéxiào cǎigòule yì pī xīn de shíyàn shèbèi.", "example_vn": "Trường học đã thu mua một lô thiết bị thí nghiệm mới."}, {"id": 138, "hanzi": "采集", "pinyin": "cǎijí", "pos": "Động từ", "meaning": "Thu thập, hái lượm mẫu vật, dữ liệu", "example_cn": "科学家们在森林里采集植物标本。", "example_pinyin": "Kēxuéjiāmen zài sēnlín lǐ cǎijí zhíwù biāoběn.", "example_vn": "Các nhà khoa học đang thu thập mẫu vật thực vật trong rừng."}, {"id": 139, "hanzi": "采纳", "pinyin": "cǎinà", "pos": "Động từ", "meaning": "Tiếp thu, chấp nhận (ý kiến, kiến nghị)", "example_cn": "领导最终采纳了合理化建议。", "example_pinyin": "Lǐngdǎo zuìzhōng cǎinàle hélǐhuà jiànyì。", "example_vn": "Lãnh đạo cuối cùng đã tiếp thu kiến nghị hợp lý hóa."}, {"id": 140, "hanzi": "彩票", "pinyin": "cǎipiào", "pos": "Danh từ", "meaning": "Vé số, xổ số", "example_cn": "他居然中了大奖，买彩票发财了。", "example_pinyin": "Tā jūrán zhòngle dàjiǎng, mǎi cǎipiào fācái le.", "example_vn": "Anh ta vậy mà trúng giải độc đắc, mua vé số phát tài rồi."}, {"id": 141, "hanzi": "参谋", "pinyin": "cānmóu", "pos": "Danh từ/Động từ", "meaning": "Tham mưu, cố vấn, hiến kế", "example_cn": "请你帮我参谋参谋买哪款车好。", "example_pinyin": "Qǐng nǐ bāng wǒ cānmóu cānmóu mǎi nǎ kuǎn chē hǎo.", "example_vn": "Xin bạn giúp tôi tham mưu xem mua mẫu xe nào tốt."}, {"id": 142, "hanzi": "残酷", "pinyin": "cánkù", "pos": "Tính từ", "meaning": "Tàn khốc, dã man, khắc nghiệt", "example_cn": "战争是极其残酷的现实。", "example_pinyin": "Zhànzhēng shì jíqí cánkù de xiànshí.", "example_vn": "Chiến tranh là hiện thực vô cùng tàn khốc."}, {"id": 143, "hanzi": "残留", "pinyin": "cánliú", "pos": "Động từ", "meaning": "Sót lại, tàn dư, lượng dư", "example_cn": "这碗蔬菜上还有农药残留。", "example_pinyin": "Zhè wǎn shūcài shàng hái yǒu nóngyào cánliú.", "example_vn": "Trên bát rau này vẫn còn lượng dư thuốc trừ sâu."}, {"id": 144, "hanzi": "残疾", "pinyin": "cánjí", "pos": "Danh từ", "meaning": "Tàn tật, khuyết tật", "example_cn": "社会应当给予残疾人更多的关爱。", "example_pinyin": "Shèhuì yīngdāng jǐyǔ cánjírén gèng duō de guān'ài.", "example_vn": "Xã hội nên dành cho người khuyết tật nhiều sự quan tâm chăm sóc hơn."}, {"id": 145, "hanzi": "灿烂", "pinyin": "cànlàn", "pos": "Tính từ", "meaning": "Rực rỡ, huy hoàng (ánh sáng, nụ cười, văn hóa)", "example_cn": "孩子们脸上露出了灿烂的笑容。", "example_pinyin": "Háizimen liǎn shàng lùchūle cànlàn de xiàoróng.", "example_vn": "Trên khuôn mặt của các đứa trẻ lộ ra nụ cười rực rỡ."}, {"id": 146, "hanzi": "仓促", "pinyin": "cāngcù", "pos": "Tính từ", "meaning": "Vội vàng, hấp tấp, thiếu chuẩn bị", "example_cn": "由于准备仓促，这次会议开得并不成功。", "example_pinyin": "Yóuyú zhǔnbèi cāngcù, zhè cì huìyì kāi de bìng bù chénggōng.", "example_vn": "Do chuẩn bị vội vàng, cuộc họp lần này diễn ra không hề thành công."}, {"id": 147, "hanzi": "仓库", "pinyin": "cāngkù", "pos": "Danh từ", "meaning": "Nhà kho, kho hàng", "example_cn": "工人们正在往仓库里搬运货物。", "example_pinyin": "Gōngrénmen zhèngzài wǎng cāngkù lǐ bānyùn huòwù.", "example_vn": "Các công nhân đang vận chuyển hàng hóa vào trong kho."}, {"id": 148, "hanzi": "操劳", "pinyin": "cāoláo", "pos": "Động từ", "meaning": "Lao tâm khổ tứ, vất vả vì công việc/con cái", "example_cn": "母亲为这个家庭操劳了一 b輩子。", "example_pinyin": "Mǔqīn wèi zhè gè jiātíng cāoláole yíbèizi.", "example_vn": "Người mẹ đã vất vả lo toan cho gia đình này cả đời."}, {"id": 149, "hanzi": "操练", "pinyin": "cāoliàn", "pos": "Động từ", "meaning": "Luyện tập, thao diễn quân sự", "example_cn": "新兵们在操场上刻苦操练。", "example_pinyin": "Xīnbīngmen zài cāochǎng shàng kèkǔ cāoliàn.", "example_vn": "Các tân binh đang khắc khổ luyện tập trên thao trường."}, {"id": 150, "hanzi": "操纵", "pinyin": "cāozòng", "pos": "Động từ", "meaning": "Thao túng, điều khiển (máy móc, thị trường)", "example_cn": "幕后黑手企图操纵股票价格。", "example_pinyin": "Mùhòu hēishǒu qǐtú cāozòng gǔpiào jiàgé.", "example_vn": "Bàn tay đen đứng sau màn mưu toan thao túng giá cổ phiếu."}, {"id": 151, "hanzi": "操作", "pinyin": "cāozuò", "pos": "Động từ", "meaning": "Thao tác, vận hành cụ thể", "example_cn": "这台机器操作起来非常简便。", "example_pinyin": "Zhè tái jīqì cāozuò qǐlái fēicháng jiǎnbiàn.", "example_vn": "Cỗ máy này thao tác vận hành rất dễ dàng."}, {"id": 152, "hanzi": "嘈杂", "pinyin": "cáozá", "pos": "Tính từ", "meaning": "Ồn ào, huyên náo, tạp âm khó chịu", "example_cn": "菜市场里人声鼎沸，十分嘈杂。", "example_pinyin": "Càishìchǎng lǐ rénshēngdǐngfèi, shífēn cáozá.", "example_vn": "Trong chợ dân sinh tiếng người ồn ào, vô cùng huyên náo."}, {"id": 153, "hanzi": "草案", "pinyin": "cǎo'àn", "pos": "Danh từ", "meaning": "Dự thảo (văn bản, kế hoạch)", "example_cn": "董事会通过了这项新规章的草案。", "example_pinyin": "Dǒngshìhuì tōngguòle zhè xiàng xīn guīzhāng de cǎo'àn.", "example_vn": "Hội đồng quản trị đã thông qua dự thảo của quy định mới này."}, {"id": 154, "hanzi": "草率", "pinyin": "cǎoshuài", "pos": "Tính từ", "meaning": "Qua loa, đại khái, cẩu thả thiếu trách nhiệm", "example_cn": "婚姻大事，绝不能做出草率的决定。", "example_pinyin": "Hūnyīn dàshì, jué bùnéng zuòchū cǎoshuài de juédìng.", "example_vn": "Chuyện đại sự hôn nhân, tuyệt đối không được đưa ra quyết định qua loa cẩu thả."}, {"id": 155, "hanzi": "侧面", "pinyin": "cèmiàn", "pos": "Danh từ", "meaning": "Mặt bên, khía cạnh gián tiếp", "example_cn": "我们要从不同侧面去了解事情的真相。", "example_pinyin": "Wǒmen yào cóng bùtóng cèmiàn qù liǎojiě shìqing de zhēnxiàng.", "example_vn": "Chúng ta cần tìm hiểu chân tướng sự việc từ nhiều khía cạnh khác nhau."}, {"id": 156, "hanzi": "策划", "pinyin": "cèhuà", "pos": "Động từ", "meaning": "Vạch kế hoạch, bày mưu, đạo diễn sự kiện", "example_cn": "这起成功的营销活动是由他策划的。", "example_pinyin": "Zhè qǐ chénggōng de yíngxiāo huódòng shì yóu tā cèhuà de.", "example_vn": "Chiến dịch marketing thành công này là do anh ấy vạch kế hoạch."}, {"id": 157, "hanzi": "测量", "pinyin": "cèliáng", "pos": "Động từ", "meaning": "Đo lường, đo đạc kỹ thuật", "example_cn": "工程人员正在测量土地的面积。", "example_pinyin": "Gōngchéng rényuán zhèngzài cèliáng tǔdì de miànjī.", "example_vn": "Nhân viên công trình đang đo đạc diện tích mảnh đất."}, {"id": 158, "hanzi": "策略", "pinyin": "cèlüè", "pos": "Danh từ", "meaning": "Chiến lược, sách lược, phương pháp khéo léo", "example_cn": "商场如战场，必须讲究谈判策略。", "example_pinyin": "Shāngchǎng rú zhànchǎng, mìxū jiǎngjiu tánpàn cèlüè.", "example_vn": "Thương trường như chiến trường, phải chú trọng sách lược đàm phán."}, {"id": 159, "hanzi": "层出不穷", "pinyin": "céng chū bù qióng", "pos": "Thành ngữ", "meaning": "Tầng tầng lớp lớp, xuất hiện không ngừng", "example_cn": "近年来的高科技新品层出不穷。", "example_pinyin": "Jìnniánlái de gāokējì xīnpǐn céng chū bù qióng.", "example_vn": "Sản phẩm công nghệ cao mới những năm gần đây xuất hiện không ngừng."}, {"id": 160, "hanzi": "层次", "pinyin": "céngcì", "pos": "Danh từ", "meaning": "Trình tự, cấp độ cấu trúc, tầng lớp xã hội", "example_cn": "这篇文章结构清晰，层次分明。", "example_pinyin": "Zhè piān wénzhāng jiégòu qīngxī, céngcì fēnmíng.", "example_vn": "Bài văn này cấu trúc rõ ràng, cấp độ bố cục rành mạch."}, {"id": 161, "hanzi": "差距", "pinyin": "chājù", "pos": "Danh từ", "meaning": "Khoảng cách, sự chênh lệch", "example_cn": "城乡之间的经济差距正在逐步缩小。", "example_pinyin": "Chéngxiāng zhījiān de jīngjì chājù zhèngzài zhúbù suǒxiǎo.", "example_vn": "Khoảng cách kinh tế giữa thành thị và nông thôn đang từng bước thu hẹp."}, {"id": 162, "hanzi": "查获", "pinyin": "cháhuò", "pos": "Động từ", "meaning": "Điều tra và bắt giữ/thu giữ (hàng lậu)", "example_cn": "海关查获了一批走私进口的化妆品。", "example_pinyin": "Hǎiguān cháhuòle yì pī zǒusī jìnkǒu de huàzhuāngpǐn.", "example_vn": "Hải quan đã thu giữ một lô mỹ phẩm nhập lậu trốn thuế."}, {"id": 163, "hanzi": "岔", "pinyin": "chà", "pos": "Danh từ/Động từ", "meaning": "Ngã rẽ, xen ngang, lạc đề", "example_cn": "本来在讨论正事，结果话题被打岔了。", "example_pinyin": "Běnlái zài tǎolùn zhèngshì, jiéguǒ huàtí bèi dǎchà le.", "example_vn": "Vốn dĩ đang thảo luận chính sự, kết quả chủ đề lại bị cắt ngang nói lạc hướng."}, {"id": 164, "hanzi": "刹那", "pinyin": "chànà", "pos": "Danh từ", "meaning": "Sát na, khoảnh khắc cực ngắn", "example_cn": "流星划过夜空的刹那，美极了。", "example_pinyin": "Liúxīng huàguò yèkōng de chànà, měi jíle.", "example_vn": "Khoảnh khắc sao băng rạch qua bầu trời đêm, đẹp vô cùng."}, {"id": 165, "hanzi": "诧异", "pinyin": "chàyì", "pos": "Tính từ", "meaning": "Ngạc nhiên, kinh ngạc bất ngờ", "example_cn": "听到这个离奇的故事，大家都感到十分诧异。", "example_pinyin": "Tīngdào zhè gè líqí de gùshì, dàjiā dōu gǎndào shífēn chàyì.", "example_vn": "Nghe câu chuyện kỳ lạ này, mọi người đều cảm thấy vô cùng kinh ngạc."}, {"id": 166, "hanzi": "柴油", "pinyin": "cháiyóu", "pos": "Danh từ", "meaning": "Dầu diesel", "example_cn": "大多数大型卡车都使用柴油作为燃料。", "example_pinyin": "Dàduōshù dàxíng kǎchē dōu shǐyòng cháiyóu zuòwéi ránliào.", "example_vn": "Đại đa số xe tải lớn đều dùng dầu diesel làm nhiên liệu."}, {"id": 167, "hanzi": "搀", "pinyin": "chān", "pos": "Động từ", "meaning": "Dìu, đỡ, trộn lẫn vào", "example_cn": "她搀扶着盲人安全地过了马路。", "example_pinyin": "Tā chānfúzhe mángrén ānquán de guòle mǎlù.", "example_vn": "Cô ấy dìu người khiếm thị qua đường an toàn."}, {"id": 168, "hanzi": "贪婪", "pinyin": "tānlán", "pos": "Tính từ", "meaning": "Tham lam", "example_cn": "那个贪婪的官员最终受到了法律的制裁。", "example_pinyin": "Nàgè tānlán de guānyuán zuìzhōng shòudaole fǎlǜ de zhìcái.", "example_vn": "Vị quan chức tham lam đó cuối cùng đã chịu sự trừng phạt của pháp luật."}, {"id": 169, "hanzi": "蝉", "pinyin": "chán", "pos": "Danh từ", "meaning": "Con ve sầu", "example_cn": "炎热的夏天，树上传来阵阵蝉鸣。", "example_pinyin": "Yánrè de xiàtiān, shùshàng chuánlái zhènzhèn chánmíng.", "example_vn": "Mùa hè nóng bức, trên cây truyền lại từng trận tiếng ve sầu kêu."}, {"id": 170, "hanzi": "成果", "pinyin": "chéngguǒ", "pos": "Danh từ", "meaning": "Thành quả có lợi", "example_cn": "这项科研成果将造福全人类。", "example_pinyin": "Zhè xiàng kēyán chéngguǒ jiāng zàofú quán rénlèi.", "example_vn": "Thành quả nghiên cứu khoa học này sẽ mang lại phúc lợi cho toàn nhân loại."}, {"id": 171, "hanzi": "阐述", "pinyin": "chǎnshù", "pos": "Động từ", "meaning": "Trình bày chi tiết, làm rõ luận điểm", "example_cn": "报告详细阐述了公司的未来战略规划。", "example_pinyin": "Bàogào xiángxì chǎnshùle gōngsī de wèilái zhànlüè guīhuà.", "example_vn": "Báo cáo trình bày chi tiết kế hoạch chiến lược tương lai của công ty."}, {"id": 172, "hanzi": "颤抖", "pinyin": "chàndǒu", "pos": "Động từ", "meaning": "Run rẩy, rùng mình vì lạnh/sợ", "example_cn": "她冻得身体不停地颤抖。", "example_pinyin": "Tā dòng de shēntǐ bùtíngde chàndǒu.", "example_vn": "Cô ấy rét đến mức cơ thể không ngừng run rẩy."}, {"id": 173, "hanzi": "昌盛", "pinyin": "chāngshèng", "pos": "Tính từ", "meaning": "Phồn vinh, hưng thịnh (quốc gia, thời đại)", "example_cn": "繁荣昌盛是每一个国家的梦想。", "example_pinyin": "Fánróng chāngshèng shì měi yí gè guójiā de mèngxiǎng.", "example_vn": "Phồn vinh hưng thịnh là ước mơ của mỗi một quốc gia."}, {"id": 174, "hanzi": "尝试", "pinyin": "chángshì", "pos": "Động từ/Danh từ", "meaning": "Thử, thử nghiệm làm gì đó mới", "example_cn": "虽然失败了，但这仍是一个勇敢的尝试。", "example_pinyin": "Suīrán shībāile, dàn zhè réng shì yí gè yǒnggǎn de chángshì.", "example_vn": "Tuy rằng thất bại, nhưng đây vẫn là một sự thử nghiệm dũng cảm."}, {"id": 175, "hanzi": "偿还", "pinyin": "chánghuán", "pos": "Động từ", "meaning": "Bồi thường, hoàn trả nợ nần/ơn nghĩa", "example_cn": "他们终于在年底前偿还了所有债务。", "example_pinyin": "Tāmen zhōngyú zài niándǐ qián chánghuánle suǒyǒu zhàiwù.", "example_vn": "Họ cuối cùng đã hoàn trả toàn bộ nợ nần trước cuối năm."}, {"id": 176, "hanzi": "常年", "pinyin": "chángnián", "pos": "Phó từ", "meaning": "Quanh năm, suốt năm không nghỉ", "example_cn": "高山上常年积雪不化。", "example_pinyin": "Gāoshān shàng chángnián jīxuě bú huà.", "example_vn": "Trên núi cao quanh năm tuyết phủ không tan."}, {"id": 177, "hanzi": "常务", "pinyin": "chángwù", "pos": "Danh từ/Tính từ", "meaning": "Thường vụ (chức vụ hành chính thường trực)", "example_cn": "他是我们协会的常务理事。", "example_pinyin": "Tā shì wǒmen xiéhuì de chángwù lǐshì.", "example_vn": "Ông ấy là ủy viên thường vụ hội đồng của hiệp hội chúng tôi."}, {"id": 178, "hanzi": "场面", "pinyin": "chǎngmiàn", "pos": "Danh từ", "meaning": "Cảnh tượng, bối cảnh hoành tráng, quảng giao", "example_cn": "电影里的战争场面非常震撼。", "example_pinyin": "Diànyǐng lǐ de zhànzhēng chǎngmiàn fēicháng zhènhàn.", "example_vn": "Cảnh tượng chiến tranh trong phim vô cùng chấn động."}, {"id": 179, "hanzi": "场所", "pinyin": "chǎngsuǒ", "pos": "Danh từ", "meaning": "Địa điểm, nơi chốn công cộng", "example_cn": "公共场所禁止吸烟。", "example_pinyin": "Gōnggòng chǎngsuǒ jìnzhǐ xīyān.", "example_vn": "Nơi công cộng cấm hút thuốc lá."}, {"id": 180, "hanzi": "敞开", "pinyin": "chǎngkāi", "pos": "Động từ", "meaning": "Mở rộng, mở toang cửa/tâm hồn", "example_cn": "我们要敞开心扉迎接新朋友。", "example_pinyin": "Wǒmen yào chǎngkāi xīnfēi yíngjiē xīn péngyǒu.", "example_vn": "Chúng ta cần mở rộng trái lòng để đón chào những người bạn mới."}, {"id": 181, "hanzi": "倡导", "pinyin": "chàngdǎo", "pos": "Động từ", "meaning": "Khởi xướng, đề xướng xu hướng/lối sống", "example_cn": "政府一直倡导绿色低碳的生活方式。", "example_pinyin": "Zhèngfǔ yìzhí chàngdǎo lǜsè dītàn de shēnghuó fāngshì.", "example_vn": "Chính phủ luôn khởi xướng lối sống xanh carbon thấp."}, {"id": 182, "hanzi": "倡议", "pinyin": "chàngyì", "pos": "Động từ/Danh từ", "meaning": "Đề xuất, sáng kiến, lời kêu gọi", "example_cn": "有人倡议在小区里建立一个图书角。", "example_pinyin": "Yǒurén chàngyì zài xiǎoqū lǐ jiànlì yí gè túshūjiǎo.", "example_vn": "Có người đề xuất thành lập một góc sách trong khu dân cư."}, {"id": 183, "hanzi": "畅通", "pinyin": "chàngtōng", "pos": "Tính từ", "meaning": "Thông suốt, không bị tắc nghẽn (giao thông)", "example_cn": "经过疏导，这条主干道的交通恢复了畅通。", "example_pinyin": "Jīngguò shūdǎo, zhè tiáo zhǔgàndào de jiāotōng huīfùle chàngtōng.", "example_vn": "Sau khi phân luồng, giao thông trên trục đường chính này đã khôi phục thông suốt."}, {"id": 184, "hanzi": "畅销", "pinyin": "chàngxiāo", "pos": "Tính từ", "meaning": "Bán chạy, tiêu thụ rất mạnh", "example_cn": "这部科幻小说连续几个月都是畅销书。", "example_pinyin": "Zhè bù kēhuàn xiǎoshuō liánxù jǐ gè yuè dōu shì chàngxiāoshū.", "example_vn": "Cuốn tiểu thuyết khoa học viễn tưởng này liên tục nhiều tháng đều là sách bán chạy."}, {"id": 185, "hanzi": "超过", "pinyin": "chāoguò", "pos": "Động từ", "meaning": "Vượt quá con số, vượt lên trước", "example_cn": "中国的人口总量超过了十四亿。", "example_pinyin": "Zhōngguó de rénkǒu zǒngliàng chāoguòle shísì yì.", "example_vn": "Tổng lượng dân số Trung Quốc đã vượt quá 1,4 tỷ người."}, {"id": 186, "hanzi": "超越", "pinyin": "chāoyuè", "pos": "Động từ", "meaning": "Vượt qua giới hạn, siêu việt", "example_cn": "真正的强者能够不断超越自己。", "example_pinyin": "Zhèngzhèng de qiángzhě nénggòu búduàn chāoyuè zìjǐ.", "example_vn": "Kẻ mạnh chân chính có thể không ngừng vượt qua giới hạn của chính mình."}, {"id": 187, "hanzi": "朝气蓬勃", "pinyin": "zhāo qì péng bó", "pos": "Thành ngữ", "meaning": "Tràn đầy sức sống, trẻ trung sôi nổi", "example_cn": "青年人总是朝气蓬勃的。", "example_pinyin": "Qīngniánrén zǒngshì zhāo qì péng bó de.", "example_vn": "Người trẻ tuổi luôn luôn tràn đầy sức sống và nhiệt huyết."}, {"id": 188, "hanzi": "潮湿", "pinyin": "cháoshī", "pos": "Tính từ", "meaning": "Ẩm ướt, nồm (thời tiết, không khí)", "example_cn": "梅雨季节，房间里总是感觉很朝湿。", "example_pinyin": "Méiyǔ jìjié, fángjiān lǐ zǒngshì gǎnjué hěn cháoshī.", "example_vn": "Mùa mưa dầm, trong phòng luôn cảm thấy rất ẩm ướt."}, {"id": 189, "hanzi": "潮流", "pinyin": "cháoliú", "pos": "Danh từ", "meaning": "Trào lưu, xu hướng thời đại", "example_cn": "我们要顺应历史发展的潮流。", "example_pinyin": "Wǒmen yào shùnyìng lìshǐ fāzhǎn de cháoliú.", "example_vn": "Chúng ta cần thuận theo trào lưu phát triển của lịch sử."}, {"id": 190, "hanzi": "撤退", "pinyin": "chètuì", "pos": "Động từ", "meaning": "Rút lui, rút quân khỏi trận địa", "example_cn": "部队接到了命令，开始有序地撤退。", "example_pinyin": "Bùduì jiēdàole mìnglìng, kāishǐ yǒuxù de chètuì.", "example_vn": "Quân đội nhận được mệnh lệnh, bắt đầu rút lui một cách có trật tự."}, {"id": 191, "hanzi": "撤销", "pinyin": "chèxiāo", "pos": "Động từ", "meaning": "Hủy bỏ, thu hồi (quyết định, cơ quan)", "example_cn": "由于情况改变，原来的处罚决定被撤销了。", "example_pinyin": "Yóuyú qíngkuàng gǎibiàn, yuánlái de chǔfá juédìng bèi chèxiāo le.", "example_vn": "Do tình hình thay đổi, quyết định xử phạt ban đầu đã bị hủy bỏ."}, {"id": 192, "hanzi": "沉淀", "pinyin": "chéndiàn", "pos": "Động từ/Danh từ", "meaning": "Lắng đọng, trầm tích, đúc kết", "example_cn": "经过时间的沉淀，两人的友谊更加深厚。", "example_pinyin": "Jīngguò shíjiān de chéndiàn, liǎng rén de yǒuyì gèngjiā shēnhòu.", "example_vn": "Qua sự lắng đọng của thời gian, tình bạn của hai người càng thêm sâu đậm."}, {"id": 193, "hanzi": "沉闷", "pinyin": "chénmèn", "pos": "Tính từ", "meaning": "U ám, ngột ngạt, buồn tẻ (bầu không khí)", "example_cn": "外面阴云密布，天气沉闷得让人喘不过气。", "example_pinyin": "Wàimiàn yīnyúnmìbù, tiānqì chénmèn de ràng rén chuǎn bú guò qì.", "example_vn": "Bên ngoài mây đen dày đặc, thời tiết ngột ngạt khiến người ta không thở nổi."}, {"id": 194, "hanzi": "沉思", "pinyin": "chénsī", "pos": "Động từ", "meaning": "Trầm tư, suy nghĩ sâu sắc yên lặng", "example_cn": "他靠在椅子上，陷入了长久的沉思。", "example_pinyin": "Tā kào zài yǐzi shàng, xiànrùle chángjiǔ de chénsī.", "example_vn": "Anh ấy tựa vào ghế, rơi vào sự trầm tư suy nghĩ hồi lâu."}, {"id": 195, "hanzi": "沉重", "pinyin": "chénzhòng", "pos": "Tính từ", "meaning": "Nặng nề, nghiêm trọng, đè nặng (tâm trạng, gánh nặng)", "example_cn": "听到好朋友出事的消息，他的心情十分沉重。", "example_pinyin": "Tīngdào hǎo péngyǒu chūshì de xiāoxi, tā de xīnqíng shífēn chénzhòng.", "example_vn": "Nghe tin người bạn thân gặp chuyện, tâm trạng anh ấy vô cùng nặng nề."}, {"id": 196, "hanzi": "沉着", "pinyin": "chénzhuó", "pos": "Tính từ", "meaning": "Điềm tĩnh, bình tĩnh dũng cảm đối mặt", "example_cn": "面对突发 hỏa hoạn，他沉着地指挥大家疏散。", "example_pinyin": "Miànduì tūfā huǒhàn, tā chénzhuó de zhǐhuī dàjiā shūsàn.", "example_vn": "Đối mặt với vụ hỏa hoạn đột xuất, anh ấy điềm tĩnh chỉ huy mọi người sơ tán."}, {"id": 197, "hanzi": "陈旧", "pinyin": "chénjiù", "pos": "Tính từ", "meaning": "Cũ kỹ, lạc hậu, lỗi thời", "example_cn": "这些陈旧观念已经不适应新时代的需求了。", "example_pinyin": "Zhèxiē chénjiù guānniàn yǐjīng bú shìyìng xīn shídài de xūqiú le.", "example_vn": "Những quan niệm cũ kỹ này đã không còn thích ứng với nhu cầu của thời đại mới nữa."}, {"id": 198, "hanzi": "陈列", "pinyin": "chénliè", "pos": "Động từ", "meaning": "Trưng bày, sắp đặt triển lãm", "example_cn": "展厅里陈列着各种精美的工艺品。", "example_pinyin": "Zhǎntīng lǐ chénlièzhe gèzhǒng jīngměi de gōngyìpǐn.", "example_vn": "Trong phòng triển lãm trưng bày đa dạng các món đồ thủ công mỹ nghệ tinh xảo."}, {"id": 199, "hanzi": "陈述", "pinyin": "chénshù", "pos": "Động từ", "meaning": "Trần thuật, trình bày sự việc khách quan", "example_cn": "请你详细陈述一下当时发生的具体经过。", "example_pinyin": "Qǐng nǐ xiángxì chénshù yíxià dāngshí fāshēng de jùtǐ jīngguò.", "example_vn": "Xin bạn trần thuật chi tiết một chút về quá trình cụ thể xảy ra lúc đó."}, {"id": 200, "hanzi": "称职", "pinyin": "chènzhí", "pos": "Tính từ", "meaning": "Xứng đáng với chức vụ, tròn vai, đủ năng lực", "example_cn": "他工作认真负责，是一位非常称职的经理。", "example_pinyin": "Tā gōngzuò rènzhēn fùzé, shì yí wèi fēicháng chènzhí de jīnglǐ.", "example_vn": "Anh ấy làm việc nghiêm túc trách nhiệm, là một vị giám đốc rất xứng đáng tròn vai."}];
+
+const POS_BUCKETS = ['Động từ','Danh từ','Tính từ','Thành ngữ','Phó từ','Khác'];
+function bucketOf(pos){
+  return POS_BUCKETS.includes(pos) ? pos : 'Khác';
+}
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+function sample(arr,n){ return shuffle(arr).slice(0,n); }
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ---------------- TAB SWITCHING ---------------- */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ---------------- SESSION STATS ---------------- */
+const session = { known:new Set(), review:new Set() };
+function renderSessionStats(){
+  document.getElementById('sessionStats').innerHTML =
+    `Đã nhớ: <b>${session.known.size}</b> · Cần ôn lại: <b>${session.review.size}</b>`;
+}
+
+/* ---------------- FLASHCARD ---------------- */
+let fcFilterBucket = 'Tất cả';
+let fcSearchTerm = '';
+let fcDeck = VOCAB.slice();
+let fcIndex = 0;
+
+function buildChipGroup(containerId, onChange){
+  const el = document.getElementById(containerId);
+  const cats = ['Tất cả', ...POS_BUCKETS];
+  el.innerHTML = cats.map(c=>`<button class="chip${c==='Tất cả'?' active':''}" data-cat="${c}">${c}</button>`).join('');
+  el.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      el.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      onChange(chip.dataset.cat);
+    });
+  });
+}
+
+function applyFcFilter(){
+  fcDeck = VOCAB.filter(w=>{
+    const matchCat = fcFilterBucket==='Tất cả' || bucketOf(w.pos)===fcFilterBucket;
+    const t = fcSearchTerm.trim().toLowerCase();
+    const matchSearch = !t || w.hanzi.toLowerCase().includes(t) || w.pinyin.toLowerCase().includes(t) || w.meaning.toLowerCase().includes(t);
+    return matchCat && matchSearch;
+  });
+  fcIndex = 0;
+  renderFlashcard();
+}
+
+buildChipGroup('fcChips', (cat)=>{ fcFilterBucket = cat; applyFcFilter(); });
+document.getElementById('fcSearch').addEventListener('input', (e)=>{ fcSearchTerm = e.target.value; applyFcFilter(); });
+
+const flashcardEl = document.getElementById('flashcard');
+flashcardEl.addEventListener('click', ()=> flashcardEl.classList.toggle('flipped'));
+
+function renderFlashcard(){
+  const empty = document.getElementById('fcEmptyState');
+  if(fcDeck.length===0){
+    flashcardEl.style.display = 'none';
+    empty.style.display = 'block';
+    document.getElementById('fcProgress').textContent = '0 / 0';
+    document.getElementById('fcTrackFill').style.width = '0%';
+    return;
+  }
+  flashcardEl.style.display = 'block';
+  empty.style.display = 'none';
+  flashcardEl.classList.remove('flipped');
+  const w = fcDeck[fcIndex];
+  document.getElementById('fcPosFront').textContent = w.pos;
+  document.getElementById('fcHanzi').textContent = w.hanzi;
+  document.getElementById('fcPinyin').textContent = w.pinyin;
+  document.getElementById('fcPosBack').textContent = w.pos;
+  document.getElementById('fcMeaning').textContent = w.meaning;
+  document.getElementById('fcExCn').textContent = w.example_cn;
+  document.getElementById('fcExPinyin').textContent = w.example_pinyin;
+  document.getElementById('fcExVn').textContent = w.example_vn;
+  document.getElementById('fcProgress').textContent = `${fcIndex+1} / ${fcDeck.length}`;
+  document.getElementById('fcTrackFill').style.width = `${((fcIndex+1)/fcDeck.length)*100}%`;
+}
+
+function stampWord(text, color){
+  const stamp = document.getElementById('fcStamp');
+  stamp.innerHTML = `<rect x="6" y="6" width="88" height="88" rx="8" fill="none" stroke="${color}" stroke-width="7"/>
+    <text x="50" y="58" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="700" font-size="34" fill="${color}">${text}</text>`;
+  stamp.classList.remove('show');
+  void stamp.offsetWidth;
+  stamp.classList.add('show');
+}
+
+document.getElementById('fcNext').addEventListener('click', ()=>{
+  if(fcDeck.length===0) return;
+  fcIndex = (fcIndex+1) % fcDeck.length;
+  renderFlashcard();
+});
+document.getElementById('fcPrev').addEventListener('click', ()=>{
+  if(fcDeck.length===0) return;
+  fcIndex = (fcIndex-1+fcDeck.length) % fcDeck.length;
+  renderFlashcard();
+});
+document.getElementById('fcShuffle').addEventListener('click', ()=>{
+  fcDeck = shuffle(fcDeck);
+  fcIndex = 0;
+  renderFlashcard();
+});
+document.getElementById('fcKnown').addEventListener('click', ()=>{
+  if(fcDeck.length===0) return;
+  const w = fcDeck[fcIndex];
+  session.known.add(w.id); session.review.delete(w.id);
+  renderSessionStats();
+  stampWord('记','#3E6259');
+  setTimeout(()=>{ document.getElementById('fcNext').click(); }, 420);
+});
+document.getElementById('fcNeedReview').addEventListener('click', ()=>{
+  if(fcDeck.length===0) return;
+  const w = fcDeck[fcIndex];
+  session.review.add(w.id); session.known.delete(w.id);
+  renderSessionStats();
+  stampWord('练','#A93B2E');
+  setTimeout(()=>{ document.getElementById('fcNext').click(); }, 420);
+});
+
+/* ---------------- WORD LIST ---------------- */
+let listFilterBucket = 'Tất cả';
+let listSearchTerm = '';
+
+buildChipGroup('listChips', (cat)=>{ listFilterBucket = cat; renderList(); });
+document.getElementById('listSearch').addEventListener('input', (e)=>{ listSearchTerm = e.target.value; renderList(); });
+
+function renderList(){
+  const t = listSearchTerm.trim().toLowerCase();
+  const filtered = VOCAB.filter(w=>{
+    const matchCat = listFilterBucket==='Tất cả' || bucketOf(w.pos)===listFilterBucket;
+    const matchSearch = !t || w.hanzi.toLowerCase().includes(t) || w.pinyin.toLowerCase().includes(t) || w.meaning.toLowerCase().includes(t);
+    return matchCat && matchSearch;
+  });
+  document.getElementById('listCount').textContent = `${filtered.length} / ${VOCAB.length} từ`;
+  const container = document.getElementById('vocabList');
+  container.innerHTML = filtered.map(w=>`
+    <div class="vocab-row" data-id="${w.id}">
+      <div class="vocab-row-head">
+        <span class="vr-idx">${String(w.id).padStart(3,'0')}</span>
+        <span class="vr-hanzi">${escapeHtml(w.hanzi)}</span>
+        <span class="vr-pinyin">${escapeHtml(w.pinyin)}</span>
+        <span class="vr-pos">${escapeHtml(w.pos)}</span>
+        <span class="vr-meaning">${escapeHtml(w.meaning)}</span>
+        <svg class="vr-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="vocab-row-body">
+        <div class="vr-example-cn">${escapeHtml(w.example_cn)}</div>
+        <div class="vr-example-pinyin">${escapeHtml(w.example_pinyin)}</div>
+        <div class="vr-example-vn">${escapeHtml(w.example_vn)}</div>
+      </div>
+    </div>
+  `).join('');
+  container.querySelectorAll('.vocab-row').forEach(row=>{
+    row.querySelector('.vocab-row-head').addEventListener('click', ()=> row.classList.toggle('open'));
+  });
+}
+
+/* ---------------- QUIZ ENGINE ---------------- */
+const QUIZ_TYPE_LABELS = {
+  'hanzi-meaning': 'HÁN TỰ → NGHĨA',
+  'meaning-hanzi': 'NGHĨA → HÁN TỰ',
+  'fill-blank': 'ĐIỀN TỪ VÀO CÂU'
+};
+let quiz = null;
+
+function buildQuestion(type, word){
+  if(type === 'hanzi-meaning'){
+    const distractors = sample(VOCAB.filter(w=>w.id!==word.id), 3).map(w=>w.meaning);
+    const options = shuffle([word.meaning, ...distractors]);
+    return { type, word, promptHanzi: word.hanzi, promptPinyin: word.pinyin,
+      options: options.map(text => ({text, correct: text===word.meaning})) };
+  }
+  if(type === 'meaning-hanzi'){
+    const distractors = sample(VOCAB.filter(w=>w.id!==word.id), 3);
+    const options = shuffle([word, ...distractors]);
+    return { type, word, promptText: word.meaning,
+      options: options.map(w => ({hanzi:w.hanzi, pinyin:w.pinyin, correct:w.id===word.id})) };
+  }
+  // fill-blank
+  const blanked = word.example_cn.replace(word.hanzi, '<span class="blank">＿＿＿＿</span>');
+  const distractors = sample(VOCAB.filter(w=>w.id!==word.id), 3).map(w=>w.hanzi);
+  const options = shuffle([word.hanzi, ...distractors]);
+  return { type, word, promptSentence: blanked,
+    options: options.map(h => ({hanzi:h, correct:h===word.hanzi})) };
+}
+
+function startQuiz(type){
+  const pool = type==='fill-blank' ? VOCAB.filter(w=>w.example_cn.includes(w.hanzi)) : VOCAB;
+  const words = sample(pool, 10);
+  quiz = {
+    type,
+    questions: words.map(w=>buildQuestion(type,w)),
+    index:0, score:0, wrong:[], results:[]
+  };
+  document.getElementById('quizPicker').style.display='none';
+  document.getElementById('quizSummary').style.display='none';
+  document.getElementById('quizActive').style.display='block';
+  renderQuizDots();
+  renderQuizQuestion();
+}
+
+function renderQuizDots(){
+  const dots = document.getElementById('quizDots');
+  dots.innerHTML = quiz.questions.map((q,i)=>{
+    let cls = 'quiz-dot';
+    if(i===quiz.index) cls += ' current';
+    if(quiz.results[i]==='correct') cls += ' correct';
+    if(quiz.results[i]==='wrong') cls += ' wrong';
+    return `<span class="${cls}"></span>`;
+  }).join('');
+  document.getElementById('quizScore').textContent = `Điểm: ${quiz.score}/${quiz.index}`;
+}
+
+function renderQuizQuestion(){
+  const q = quiz.questions[quiz.index];
+  document.getElementById('quizTypeLabel').textContent = QUIZ_TYPE_LABELS[q.type] + ` · Câu ${quiz.index+1}/10`;
+  const promptArea = document.getElementById('quizPromptArea');
+  if(q.type==='hanzi-meaning'){
+    promptArea.innerHTML = `<div class="quiz-prompt-hanzi">${escapeHtml(q.promptHanzi)}</div><div class="quiz-prompt-pinyin">${escapeHtml(q.promptPinyin)}</div>`;
+  } else if(q.type==='meaning-hanzi'){
+    promptArea.innerHTML = `<div class="quiz-prompt-text">${escapeHtml(q.promptText)}</div>`;
+  } else {
+    promptArea.innerHTML = `<div class="quiz-prompt-sentence">${q.promptSentence}</div>`;
+  }
+
+  const letters = ['Ａ','Ｂ','Ｃ','Ｄ'];
+  const optsEl = document.getElementById('quizOptions');
+  optsEl.innerHTML = q.options.map((opt,i)=>{
+    let inner;
+    if(q.type==='meaning-hanzi'){
+      inner = `<span class="qh">${escapeHtml(opt.hanzi)}</span><span class="qp">${escapeHtml(opt.pinyin)}</span>`;
+    } else if(q.type==='fill-blank'){
+      inner = `<span class="qh">${escapeHtml(opt.hanzi)}</span>`;
+    } else {
+      inner = `<span>${escapeHtml(opt.text)}</span>`;
+    }
+    return `<button class="quiz-opt" data-i="${i}"><span class="quiz-opt-letter">${letters[i]}</span><span class="quiz-opt-text">${inner}</span></button>`;
+  }).join('');
+
+  document.getElementById('quizExplain').classList.remove('show');
+  document.getElementById('quizExplain').innerHTML = '';
+  document.getElementById('quizNextBtn').disabled = true;
+  document.getElementById('quizNextBtn').textContent = quiz.index===9 ? 'Xem kết quả' : 'Câu tiếp ›';
+
+  optsEl.querySelectorAll('.quiz-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=> answerQuestion(q, parseInt(btn.dataset.i,10)));
+  });
+
+  renderQuizDots();
+}
+
+function answerQuestion(q, chosenIdx){
+  if(q.answered) return;
+  q.answered = true;
+  const optsEl = document.getElementById('quizOptions');
+  const buttons = optsEl.querySelectorAll('.quiz-opt');
+  const correctIdx = q.options.findIndex(o=>o.correct);
+  buttons.forEach((b,i)=>{
+    b.disabled = true;
+    if(i===correctIdx) b.classList.add('correct');
+    if(i===chosenIdx && chosenIdx!==correctIdx) b.classList.add('wrong');
+  });
+  const isCorrect = chosenIdx===correctIdx;
+  if(isCorrect){ quiz.score++; quiz.results[quiz.index]='correct'; }
+  else { quiz.results[quiz.index]='wrong'; quiz.wrong.push(q.word); }
+
+  const w = q.word;
+  document.getElementById('quizExplain').classList.add('show');
+  document.getElementById('quizExplain').innerHTML = `
+    <div><b>${escapeHtml(w.hanzi)}</b> <span style="font-family:var(--font-mono);color:var(--seal-dark);">${escapeHtml(w.pinyin)}</span> — ${escapeHtml(w.meaning)}</div>
+    <div class="qe-example">${escapeHtml(w.example_cn)}</div>
+    <div class="qe-pinyin">${escapeHtml(w.example_pinyin)}</div>
+    <div>${escapeHtml(w.example_vn)}</div>
+  `;
+  document.getElementById('quizNextBtn').disabled = false;
+  renderQuizDots();
+}
+
+document.getElementById('quizNextBtn').addEventListener('click', ()=>{
+  if(quiz.index < quiz.questions.length-1){
+    quiz.index++;
+    renderQuizQuestion();
+  } else {
+    showQuizSummary();
+  }
+});
+
+function showQuizSummary(){
+  document.getElementById('quizActive').style.display='none';
+  document.getElementById('quizSummary').style.display='block';
+  document.getElementById('qsScoreText').textContent = `${quiz.score} / ${quiz.questions.length}`;
+  let tier, color;
+  const pct = quiz.score/quiz.questions.length;
+  if(pct>=0.9){ tier='Xuất sắc — gần như trọn vẹn!'; color='#3E6259'; }
+  else if(pct>=0.7){ tier='Khá tốt, tiếp tục phát huy!'; color='#3E6259'; }
+  else if(pct>=0.4){ tier='Tạm ổn, nên ôn lại các từ sai.'; color='#B8862D'; }
+  else { tier='Cần luyện thêm — đừng nản, ôn lại nhé!'; color='#A93B2E'; }
+  document.getElementById('qsTier').textContent = tier;
+  document.getElementById('qsTier').style.color = color;
+  const stamp = document.getElementById('qsStamp');
+  stamp.innerHTML = `<rect x="6" y="6" width="88" height="88" rx="8" fill="none" stroke="${color}" stroke-width="6" transform="rotate(-4 50 50)"/>
+    <text x="50" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="700" font-size="30" fill="${color}" transform="rotate(-4 50 50)">${quiz.score}/${quiz.questions.length}</text>`;
+
+  const wl = document.getElementById('qsWrongList');
+  if(quiz.wrong.length===0){
+    wl.innerHTML = '<p style="text-align:center;color:var(--ink-faint);font-size:13.5px;">Không có từ nào sai — hoàn hảo!</p>';
+  } else {
+    wl.innerHTML = `<p style="font-size:12.5px;font-family:var(--font-mono);color:var(--ink-faint);letter-spacing:.04em;margin-bottom:6px;">CÁC TỪ CẦN ÔN LẠI</p>` +
+      quiz.wrong.map(w=>`<div class="qs-wrong-item"><span class="qh">${escapeHtml(w.hanzi)}</span><span class="qp">${escapeHtml(w.pinyin)}</span><span class="qm">${escapeHtml(w.meaning)}</span></div>`).join('');
+    quiz.wrong.forEach(w=> session.review.add(w.id));
+    renderSessionStats();
+  }
+}
+
+document.querySelectorAll('[data-quiz]').forEach(btn=>{
+  btn.addEventListener('click', ()=> startQuiz(btn.dataset.quiz));
+});
+document.getElementById('qsRetry').addEventListener('click', ()=> startQuiz(quiz.type));
+document.getElementById('qsBack').addEventListener('click', ()=>{
+  document.getElementById('quizSummary').style.display='none';
+  document.getElementById('quizPicker').style.display='grid';
+});
+
+/* ---------------- INIT ---------------- */
+renderFlashcard();
+renderList();
+renderSessionStats();
+</script>
+</body>
+</html>
